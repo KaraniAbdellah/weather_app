@@ -31,24 +31,22 @@
 //     let data = await reponse.json();
 //     console.log(data.city);
 // }
+
+
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition,null,
-        {
-            enableHighAccuracy: true,
-        }
-        );
+        navigator.geolocation.getCurrentPosition(showPosition);
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
 }
-
-
-
 function showPosition(position) {
   console.log(position.coords);
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
 }
 getLocation();
-// getUserLocation();
+
+
+
+
