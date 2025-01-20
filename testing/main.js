@@ -1,5 +1,3 @@
-
-
 // Testing OpenWeatherApi
 /*
     // My ApiKey from OpenWeatherMap and CityName
@@ -26,14 +24,31 @@
 */
 
 // Get The User Location
-async function getUserLocation() {
-    
+// async function getUserLocation() {
+//     let mytoken = "1548bf07bc15a0";
+//     let location_api = `https://ipinfo.io/json?token=${mytoken}`;
+//     let reponse = await fetch(location_api);
+//     let data = await reponse.json();
+//     console.log(data.city);
+// }
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition,null,
+        {
+            enableHighAccuracy: true,
+        }
+        );
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
 }
 
 
 
-
-
-
-
-
+function showPosition(position) {
+  console.log(position.coords);
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+}
+getLocation();
+// getUserLocation();

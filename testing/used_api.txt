@@ -9,6 +9,13 @@ let based_url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&
 let my_api = `api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}`;
 
 
+// API for Get the User Location
+let token_infoipio = "1548bf07bc15a0";
+let location_api = `https://ipinfo.io?token=${mytoken}`;
+
+
+
+
 // Use New XMLHttpRequest()
 let request = new XMLHttpRequest();
 request.open("GET", "https://api.github.com/users/KaraniAbdellah", true);
