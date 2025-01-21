@@ -35,6 +35,10 @@
   background-color: rgba(117, 117, 255, 0.7098039216) !important;
 }
 
+.image_width {
+  width: 40px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -169,6 +173,12 @@ section.weather_info aside .now .info > p {
 section.weather_info aside .now .info p span {
   font-size: 60px;
 }
+section.weather_info aside .now .date .today_value_date {
+  margin-bottom: 10px;
+}
+section.weather_info aside .now .date i {
+  margin-right: 10px;
+}
 section.weather_info aside .now .date span {
   color: var(--grey-color);
 }
@@ -188,7 +198,7 @@ section.weather_info .day_weather_info .todays {
   padding: 20px;
 }
 section.weather_info .day_weather_info .todays > p {
-  font-size: 22px;
+  font-size: 30px;
   margin-bottom: 10px;
 }
 section.weather_info .day_weather_info .todays .content {
@@ -204,7 +214,7 @@ section.weather_info .day_weather_info .todays .content .air_quality {
 }
 section.weather_info .day_weather_info .todays .content .air_quality > p {
   color: var(--grey-color);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality .info {
   text-align: center;
@@ -217,7 +227,7 @@ section.weather_info .day_weather_info .todays .content .air_quality .info .wind
 section.weather_info .day_weather_info .todays .content .air_quality .info > p {
   color: var(--grey-color);
   margin-bottom: 10px;
-  font-size: 13px;
+  font-size: 14px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality .info > p > span {
   font-size: 24px;
@@ -229,6 +239,7 @@ section.weather_info .day_weather_info .todays .content .sunrise_sunset {
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset > p {
   color: var(--grey-color);
+  margin-bottom: 30px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset .content {
   display: flex;
@@ -246,6 +257,7 @@ section.weather_info .day_weather_info .todays .content .sunrise_sunset .content
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunrise .info p, section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunset .info p {
   color: var(--grey-color);
+  margin-bottom: 5px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunrise .info span, section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunset .info span {
   font-size: 30px;
@@ -255,16 +267,60 @@ section.weather_info .day_weather_info .todays .content .humidity_pressure {
   border-radius: var(--border-radius);
   padding: 10px;
 }
+section.weather_info .day_weather_info .todays .content .humidity_pressure > p {
+  color: var(--grey-color);
+  margin-bottom: 30px;
+}
 section.weather_info .day_weather_info .todays .content .humidity_pressure .content {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.weather_info .day_weather_info .todays .content .humidity_pressure .content .humidity, section.weather_info .day_weather_info .todays .content .humidity_pressure .content .pressure {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.weather_info .day_weather_info .todays .content .humidity_pressure .content .humidity i, section.weather_info .day_weather_info .todays .content .humidity_pressure .content .pressure i {
+  font-size: 40px;
+  margin-right: 20px;
+}
+section.weather_info .day_weather_info .todays .content .humidity_pressure .content .humidity .info p, section.weather_info .day_weather_info .todays .content .humidity_pressure .content .pressure .info p {
+  color: var(--grey-color);
+  margin-bottom: 5px;
+}
+section.weather_info .day_weather_info .todays .content .humidity_pressure .content .humidity .info span, section.weather_info .day_weather_info .todays .content .humidity_pressure .content .pressure .info span {
+  font-size: 30px;
 }
 section.weather_info .day_weather_info .todays .content .visibility_feels_like {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }
+section.weather_info .day_weather_info .todays .content .visibility_feels_like > p {
+  color: var(--grey-color);
+  margin-bottom: 30px;
+}
 section.weather_info .day_weather_info .todays .content .visibility_feels_like .content {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .visibility, section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .feels_like {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .visibility i, section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .feels_like i {
+  font-size: 40px;
+  margin-right: 20px;
+}
+section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .visibility .info p, section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .feels_like .info p {
+  color: var(--grey-color);
+  margin-bottom: 5px;
+}
+section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .visibility .info span, section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .feels_like .info span {
+  font-size: 30px;
 }
 section.weather_info .day_weather_info .today_at {
   background-color: orange;

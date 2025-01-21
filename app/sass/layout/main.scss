@@ -103,6 +103,10 @@ section.weather_info {
                 }
             }
             .date {
+                .today_value_date {
+                    margin-bottom: 10px;
+                }
+                i {margin-right: 10px;}
                 span {
                     color: var(--grey-color);
                 }
@@ -123,7 +127,7 @@ section.weather_info {
             margin-bottom: 20px;
             padding: 20px;
             > p {
-                font-size: 22px;
+                font-size: 30px;
                 margin-bottom: 10px;
             }
             .content {
@@ -137,7 +141,7 @@ section.weather_info {
                     padding: 15px;
                     > p {
                         color: var(--grey-color);
-                        margin-bottom: 20px;
+                        margin-bottom: 30px;
                     }
                     .info {
                         text-align: center;
@@ -149,7 +153,7 @@ section.weather_info {
                         > p {
                             color: var(--grey-color);
                             margin-bottom: 10px;
-                            font-size: 13px;
+                            font-size: 14px;
                             > span {
                                 font-size: 24px;
                             }
@@ -162,6 +166,7 @@ section.weather_info {
                     padding: 10px;
                     > p {
                         color: var(--grey-color);
+                        margin-bottom: 30px;
                     }
                     .content {
                         @include flex_between;
@@ -169,7 +174,7 @@ section.weather_info {
                             @include flex_between;
                             i {font-size: 40px; margin-right: 20px;}
                             .info {
-                                p {color: var(--grey-color);}
+                                p {color: var(--grey-color); margin-bottom: 5px;}
                                 span {font-size: 30px;}
                             }
                         }
@@ -178,28 +183,54 @@ section.weather_info {
                         .sunset {
                         }
                     }
-
                 }
                 .humidity_pressure {
                     box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
-                    p {
-
+                    > p {
+                        color: var(--grey-color);
+                        margin-bottom: 30px;
                     }
                     .content {
-                        display: flex;
+                        @include flex_between;
+                        .humidity, .pressure {
+                            @include flex_between;
+                            i {font-size: 40px; margin-right: 20px;}
+                            // img {margin-right: 20px;}
+                            .info {
+                                p {color: var(--grey-color);  margin-bottom: 5px;}
+                                span {font-size: 30px;}
+                            }
+                        }
+                        .humidity {
+                        }
+                        .pressure {
+                        }
                     }
                 }
                 .visibility_feels_like {
                     box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
-                    p {
-
+                    > p {
+                        color: var(--grey-color);
+                        margin-bottom: 30px;
                     }
                     .content {
-                        display: flex;
+                        @include flex_between;
+                        .visibility, .feels_like {
+                            @include flex_between;
+                            i {font-size: 40px; margin-right: 20px;}
+                            .info {
+                                p {color: var(--grey-color);  margin-bottom: 5px;}
+                                span {font-size: 30px;}
+                            }
+                        }
+                        .visibility {
+                        }
+                        .feels_like {
+                        }
                     }
                 }
             }
