@@ -1,9 +1,17 @@
 .white_color {
-  color: white;
+  color: white !important;
 }
 
 .dark_color {
-  color: black;
+  color: black !important;
+}
+
+.dark_bgColor {
+  background-color: #444;
+}
+
+.white_bgColor {
+  background-color: white;
 }
 
 .container {
@@ -62,7 +70,6 @@ button {
 }
 
 body {
-  background-color: #444;
   width: 100%;
   height: 100vh;
 }
@@ -78,7 +85,7 @@ header .logo img {
   margin-right: 10px;
 }
 header .logo span {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 700;
 }
 header .search_bar {
@@ -95,17 +102,10 @@ header .search_bar .bar_input {
 header .search_bar .bar_input input, header .search_bar .bar_input button {
   padding: 10px;
   border-radius: var(--border-radius-search);
-  background-color: #444;
 }
 header .search_bar .bar_input input {
   width: 75%;
   font-size: 16px;
-}
-header .search_bar .bar_input input::-moz-placeholder {
-  color: white;
-}
-header .search_bar .bar_input input::placeholder {
-  color: white;
 }
 header .search_bar .bar_input button {
   width: 20%;
@@ -114,7 +114,6 @@ header .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: 0;
 }
 header .info button.current_location_btn {
   padding: 15px;

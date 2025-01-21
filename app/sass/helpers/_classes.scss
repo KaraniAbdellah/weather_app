@@ -2,10 +2,17 @@
 
 
 .white_color {
-    color: white;
+    color: white !important;
 }
 .dark_color {
-    color: black;
+    color: black !important;
+}
+
+.dark_bgColor {
+    background-color: #444;
+}
+.white_bgColor {
+    background-color: white;
 }
 
 .container {
