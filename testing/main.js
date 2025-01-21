@@ -35,3 +35,30 @@
 // });
 
 
+
+
+
+// Weather API
+// let api_key = "c9f3c2ce8b4d4246ba692417252101";
+// let city_name = "france";
+// fetch(`https://api.weatherapi.com/v1/search.json?key=${api_key}&q=${city_name}`).then((reponse) => {
+//     let Data = reponse.json();
+//     return Data;
+// }).then((Data) => {
+//     console.log(Data);
+// });
+
+
+// Loctionl API
+let my_api_key = "pk.8c7aff324a3accac1c7e5b2f0df1dde5";
+let letter = "beni";
+fetch(`https://api.locationiq.com/v1/autocomplete?key=${my_api_key}&q=${letter}`).then((reponse) => {
+    let data = reponse.json();
+    return data;
+}).then((data) => {
+    console.log(data);
+}).catch((err) => {
+    console.log("error fetching data...");
+})
+
+
