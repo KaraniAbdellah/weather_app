@@ -66,7 +66,9 @@ button {
 :root {
   --border-radius: 5px;
   --transition: 0.3s;
+  --grey-color: grey;
   --border-radius-search: 30px;
+  --border-radius-card: 20px;
 }
 
 body {
@@ -76,6 +78,7 @@ body {
 
 header {
   height: 100px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -144,56 +147,109 @@ header .info button.mode_dark_light i {
 }
 
 section.weather_info {
-  height: calc(100vh - 100px);
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 section.weather_info aside {
-  background-color: yellowgreen;
   width: 30%;
   height: 100%;
   padding: 10px;
 }
-section.weather_info aside > div {
-  width: 100%;
-  height: 50%;
-}
 section.weather_info aside .now {
-  background-color: red;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  border-radius: var(--border-radius-card);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+section.weather_info aside .now .info > p {
+  font-size: 30px;
+}
+section.weather_info aside .now .info p span {
+  font-size: 60px;
+}
+section.weather_info aside .now .date span {
+  color: var(--grey-color);
 }
 section.weather_info aside .favorite {
-  background-color: green;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  border-radius: var(--border-radius-card);
+  padding: 20px;
 }
 section.weather_info .day_weather_info {
-  padding: 10px;
   width: 70%;
-  height: 100%;
-  padding: 10px;
-}
-section.weather_info .day_weather_info > div {
-  width: 100%;
-  height: 50%;
+  border-radius: var(--border-radius-card);
 }
 section.weather_info .day_weather_info .todays {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  border-radius: var(--border-radius-card);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+section.weather_info .day_weather_info .todays > p {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+section.weather_info .day_weather_info .todays .content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-color: yellow;
-  gap: 10px;
+  padding: 10px;
+  gap: 15px;
 }
-section.weather_info .day_weather_info .todays .air_quality {
-  background-color: antiquewhite;
+section.weather_info .day_weather_info .todays .content .air_quality {
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  border-radius: var(--border-radius);
+  padding: 10px;
 }
-section.weather_info .day_weather_info .todays .sunrise_sunset {
-  background-color: aqua;
+section.weather_info .day_weather_info .todays .content .air_quality .info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
-section.weather_info .day_weather_info .todays .humidity_pressure {
-  background-color: aquamarine;
+section.weather_info .day_weather_info .todays .content .sunrise_sunset {
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  border-radius: var(--border-radius);
+  padding: 10px;
 }
-section.weather_info .day_weather_info .todays .visibility_feels_like {
-  background-color: #473e30;
+section.weather_info .day_weather_info .todays .content .sunrise_sunset .content {
+  display: flex;
+}
+section.weather_info .day_weather_info .todays .content .humidity_pressure {
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  border-radius: var(--border-radius);
+  padding: 10px;
+}
+section.weather_info .day_weather_info .todays .content .humidity_pressure .content {
+  display: flex;
+}
+section.weather_info .day_weather_info .todays .content .visibility_feels_like {
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  border-radius: var(--border-radius);
+  padding: 10px;
+}
+section.weather_info .day_weather_info .todays .content .visibility_feels_like .content {
+  display: flex;
 }
 section.weather_info .day_weather_info .today_at {
   background-color: orange;
+}
+@media (max-width: 992px) {
+  section.weather_info {
+    height: 100%;
+    flex-direction: column;
+  }
+  section.weather_info aside {
+    width: 100%;
+  }
+  section.weather_info .day_weather_info {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  section.weather_info .content {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  section.weather_info .day_weather_info .todays {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }/*# sourceMappingURL=main.css.map */
