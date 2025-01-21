@@ -5,8 +5,6 @@
 @use "../helpers/var" as *;
 
 
-
-
 body {
     width: 100%;
     height: 100vh;
@@ -15,7 +13,6 @@ body {
 // Start Header
 header {
     height: 100px;
-    // background-color: red;
     @include flex_between;
     .logo {
         img {
@@ -39,11 +36,11 @@ header {
                 border-radius: var(--border-radius-search);
             }
             input {
-                width: 75%;
+                width: 70%;
                 font-size: 16px;
             }
             button {
-                width: 20%;
+                width: 25%;
             }
         }
     }
@@ -64,10 +61,58 @@ header {
             }
         }
     }
+    @media (max-width: 992px) {
+        flex-direction: column;
+        padding: 20px;
+        height: 100%;
+        .search_bar {
+            margin: 30px 0;
+            width: 100%;
+        }
+        
+    }
 }
-
 // End Header
 
+
+// Start Section
+section.weather_info {
+    height: calc(100vh - 100px);
+    width: 100%;
+    @include flex_between;
+    aside {
+        .now {
+            background-color: red;
+        }
+        .favorite {
+            background-color: green;
+        }
+    }
+    .day_weather_info {
+        .todays {
+            background-color: yellow;
+            .air_quality {
+
+            }
+            .sunrise_sunset {
+                
+            }
+            .humidity_pressure {
+
+            }
+            .visibility_feels_like {
+                
+            }
+        }
+        .today_at {
+            background-color: orange;
+        }
+    }
+}
+
+
+
+// End Section
 
 
 
