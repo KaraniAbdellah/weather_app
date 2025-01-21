@@ -217,9 +217,10 @@ section.weather_info .day_weather_info .todays .content .air_quality .info .wind
 section.weather_info .day_weather_info .todays .content .air_quality .info > p {
   color: var(--grey-color);
   margin-bottom: 10px;
+  font-size: 13px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality .info > p > span {
-  font-size: 23px;
+  font-size: 24px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
