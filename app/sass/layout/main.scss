@@ -81,6 +81,11 @@ section.weather_info {
     width: 100%;
     @include flex_between;
     aside {
+        background-color: yellowgreen;
+        width: 30%;
+        height: 100%;
+        padding: 10px;
+        > div {width: 100%; height: 50%;}
         .now {
             background-color: red;
         }
@@ -89,19 +94,27 @@ section.weather_info {
         }
     }
     .day_weather_info {
+        padding: 10px;
+        width: 70%;
+        height: 100%;
+        padding: 10px;
+        > div {width: 100%; height: 50%;}
         .todays {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             background-color: yellow;
+            gap: 10px;
             .air_quality {
-
+                background-color: antiquewhite;
             }
             .sunrise_sunset {
-                
+                background-color: aqua;
             }
             .humidity_pressure {
-
+                background-color: aquamarine;
             }
             .visibility_feels_like {
-                
+                background-color: #473e30;
             }
         }
         .today_at {
@@ -113,6 +126,7 @@ section.weather_info {
 
 
 // End Section
+
 
 
 

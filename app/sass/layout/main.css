@@ -150,14 +150,49 @@ section.weather_info {
   justify-content: space-between;
   align-items: center;
 }
+section.weather_info aside {
+  background-color: yellowgreen;
+  width: 30%;
+  height: 100%;
+  padding: 10px;
+}
+section.weather_info aside > div {
+  width: 100%;
+  height: 50%;
+}
 section.weather_info aside .now {
   background-color: red;
 }
 section.weather_info aside .favorite {
   background-color: green;
 }
+section.weather_info .day_weather_info {
+  padding: 10px;
+  width: 70%;
+  height: 100%;
+  padding: 10px;
+}
+section.weather_info .day_weather_info > div {
+  width: 100%;
+  height: 50%;
+}
 section.weather_info .day_weather_info .todays {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   background-color: yellow;
+  gap: 10px;
+}
+section.weather_info .day_weather_info .todays .air_quality {
+  background-color: antiquewhite;
+}
+section.weather_info .day_weather_info .todays .sunrise_sunset {
+  background-color: aqua;
+}
+section.weather_info .day_weather_info .todays .humidity_pressure {
+  background-color: aquamarine;
+}
+section.weather_info .day_weather_info .todays .visibility_feels_like {
+  background-color: #473e30;
 }
 section.weather_info .day_weather_info .today_at {
   background-color: orange;
