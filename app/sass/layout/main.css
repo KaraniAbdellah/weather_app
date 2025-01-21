@@ -15,7 +15,7 @@
 }
 
 .container {
-  margin: 0 100px;
+  margin: 0 50px;
 }
 
 @media (max-width: 767px) {
@@ -189,30 +189,65 @@ section.weather_info .day_weather_info .todays {
 }
 section.weather_info .day_weather_info .todays > p {
   font-size: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 section.weather_info .day_weather_info .todays .content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto);
   padding: 10px;
   gap: 15px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
-  padding: 10px;
+  padding: 15px;
+}
+section.weather_info .day_weather_info .todays .content .air_quality > p {
+  color: var(--grey-color);
+  margin-bottom: 20px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality .info {
+  text-align: center;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+}
+section.weather_info .day_weather_info .todays .content .air_quality .info .wind {
+  font-size: 40px;
+}
+section.weather_info .day_weather_info .todays .content .air_quality .info > p {
+  color: var(--grey-color);
+  margin-bottom: 10px;
+}
+section.weather_info .day_weather_info .todays .content .air_quality .info > p > span {
+  font-size: 30px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }
+section.weather_info .day_weather_info .todays .content .sunrise_sunset > p {
+  color: var(--grey-color);
+}
 section.weather_info .day_weather_info .todays .content .sunrise_sunset .content {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunrise, section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunset {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunrise i, section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunset i {
+  font-size: 40px;
+  margin-right: 20px;
+}
+section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunrise .info p, section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunset .info p {
+  color: var(--grey-color);
+}
+section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunrise .info span, section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunset .info span {
+  font-size: 30px;
 }
 section.weather_info .day_weather_info .todays .content .humidity_pressure {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;

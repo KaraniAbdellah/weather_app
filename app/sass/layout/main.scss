@@ -124,34 +124,58 @@ section.weather_info {
             padding: 20px;
             > p {
                 font-size: 22px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
             .content {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, auto);
                 padding: 10px;
                 gap: 15px;
                 .air_quality {
                     box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
-                    padding: 10px;
-                    p {
-
+                    padding: 15px;
+                    > p {
+                        color: var(--grey-color);
+                        margin-bottom: 20px;
                     }
                     .info {
+                        text-align: center;
                         display: grid;
-                        grid-template-columns: repeat(4, 1fr);
+                        grid-template-columns: repeat(5, 1fr);
+                        .wind {
+                            font-size: 40px;
+                        }
+                        > p {
+                            color: var(--grey-color);
+                            margin-bottom: 10px;
+                            > span {
+                                font-size: 30px;
+                            }
+                        }
                     }
                 }
                 .sunrise_sunset {
                     box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
-                    p {
-
+                    > p {
+                        color: var(--grey-color);
                     }
                     .content {
-                        display: flex;
+                        @include flex_between;
+                        .sunrise, .sunset {
+                            @include flex_between;
+                            i {font-size: 40px; margin-right: 20px;}
+                            .info {
+                                p {color: var(--grey-color);}
+                                span {font-size: 30px;}
+                            }
+                        }
+                        .sunrise {
+                        }
+                        .sunset {
+                        }
                     }
 
                 }
