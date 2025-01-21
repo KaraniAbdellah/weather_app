@@ -219,7 +219,7 @@ section.weather_info .day_weather_info .todays .content .air_quality .info > p {
   margin-bottom: 10px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality .info > p > span {
-  font-size: 30px;
+  font-size: 23px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
