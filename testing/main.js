@@ -26,13 +26,13 @@
 
 
 // // Get The User Location [city, country, lon, lan]
-// let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
-// fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key}`).then((reponse) => {
-//     let Data = reponse.json();
-//     return Data;
-// }).then((Data) => {
-//     console.log(Data);
-// });
+let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
+fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key}`).then((reponse) => {
+    let Data = reponse.json();
+    return Data;
+}).then((Data) => {
+    console.log(Data);
+});
 
 
 
@@ -50,15 +50,15 @@
 
 
 // Loctionl API
-let my_api_key = "pk.8c7aff324a3accac1c7e5b2f0df1dde5";
-let letter = "beni";
-fetch(`https://api.locationiq.com/v1/autocomplete?key=${my_api_key}&q=${letter}`).then((reponse) => {
-    let data = reponse.json();
-    return data;
-}).then((data) => {
-    console.log(data);
-}).catch((err) => {
-    console.log("error fetching data...");
-})
+// let my_api_key = "pk.8c7aff324a3accac1c7e5b2f0df1dde5";
+// let letter = "beni";
+// fetch(`https://api.locationiq.com/v1/autocomplete?key=${my_api_key}&q=${letter}`).then((reponse) => {
+//     let data = reponse.json();
+//     return data;
+// }).then((data) => {
+//     console.log(data);
+// }).catch((err) => {
+//     console.log("error fetching data...");
+// })
 
 

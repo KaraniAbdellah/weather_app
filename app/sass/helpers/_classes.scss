@@ -8,4 +8,25 @@
     color: black;
 }
 
+.container {
+    margin: 0 100px;
+}
+
+@media (max-width: 767px) {
+    .container {
+        margin: 0 100px;
+    }
+}
+
+.header_btn {
+    background-color: #7575ff !important;
+    transition: var(--transition);
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+}
+.header_btn:hover {
+    background-color: #7575ffb5 !important;
+}
+
 
