@@ -73,6 +73,8 @@ button {
   --grey-color: grey;
   --border-radius-search: 30px;
   --border-radius-card: 20px;
+  --danger: #dc3545;
+  --success: #54aa54;
 }
 
 body {
@@ -154,12 +156,12 @@ section.weather_info {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 section.weather_info aside {
   width: 30%;
   height: 100%;
-  padding: 10px;
+  padding: 0 10px;
 }
 section.weather_info aside .now {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
@@ -167,8 +169,28 @@ section.weather_info aside .now {
   padding: 20px;
   margin-bottom: 20px;
 }
-section.weather_info aside .now .info > p {
+section.weather_info aside .now .info div.header_info {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.weather_info aside .now .info div.header_info p.title_now {
   font-size: 30px;
+}
+section.weather_info aside .now .info div.header_info .add_btn {
+  cursor: pointer;
+  background-color: green;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+section.weather_info aside .now .info div.header_info .add_btn i {
+  font-size: 20px;
+  color: white;
+}
+section.weather_info aside .now .info div.header_info .add_btn:hover {
+  background-color: #3eae3e;
 }
 section.weather_info aside .now .info p span {
   font-size: 60px;
@@ -182,10 +204,41 @@ section.weather_info aside .now .date i {
 section.weather_info aside .now .date span {
   color: var(--grey-color);
 }
-section.weather_info aside .favorite {
+section.weather_info aside .favorites {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
   border-radius: var(--border-radius-card);
   padding: 20px;
+}
+section.weather_info aside .favorites h3 {
+  margin-bottom: 20px;
+}
+section.weather_info aside .favorites .favorite {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--border-radius);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 10px;
+}
+section.weather_info aside .favorites .favorite > p {
+  font-size: 20px;
+}
+section.weather_info aside .favorites .favorite p.location_value span {
+  color: var(--grey-color);
+  font-size: 15px;
+}
+section.weather_info aside .favorites .favorite:not(:last-child) {
+  margin-bottom: 20px;
+}
+section.weather_info aside .favorites .favorite .trach {
+  cursor: pointer;
+  transition: var(--transition);
+}
+section.weather_info aside .favorites .favorite .trach:hover i {
+  color: red;
+}
+section.weather_info aside .favorites .favorite .trach i {
+  color: var(--danger);
 }
 section.weather_info .day_weather_info {
   width: 70%;
@@ -198,7 +251,7 @@ section.weather_info .day_weather_info .todays {
   padding: 20px;
 }
 section.weather_info .day_weather_info .todays > p {
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 10px;
 }
 section.weather_info .day_weather_info .todays .content {
@@ -214,7 +267,7 @@ section.weather_info .day_weather_info .todays .content .air_quality {
 }
 section.weather_info .day_weather_info .todays .content .air_quality > p {
   color: var(--grey-color);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality .info {
   text-align: center;
@@ -239,7 +292,7 @@ section.weather_info .day_weather_info .todays .content .sunrise_sunset {
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset > p {
   color: var(--grey-color);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset .content {
   display: flex;
@@ -260,7 +313,7 @@ section.weather_info .day_weather_info .todays .content .sunrise_sunset .content
   margin-bottom: 5px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunrise .info span, section.weather_info .day_weather_info .todays .content .sunrise_sunset .content .sunset .info span {
-  font-size: 30px;
+  font-size: 25px;
 }
 section.weather_info .day_weather_info .todays .content .humidity_pressure {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
@@ -269,7 +322,7 @@ section.weather_info .day_weather_info .todays .content .humidity_pressure {
 }
 section.weather_info .day_weather_info .todays .content .humidity_pressure > p {
   color: var(--grey-color);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 section.weather_info .day_weather_info .todays .content .humidity_pressure .content {
   display: flex;
@@ -290,7 +343,7 @@ section.weather_info .day_weather_info .todays .content .humidity_pressure .cont
   margin-bottom: 5px;
 }
 section.weather_info .day_weather_info .todays .content .humidity_pressure .content .humidity .info span, section.weather_info .day_weather_info .todays .content .humidity_pressure .content .pressure .info span {
-  font-size: 30px;
+  font-size: 25px;
 }
 section.weather_info .day_weather_info .todays .content .visibility_feels_like {
   box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
@@ -299,7 +352,7 @@ section.weather_info .day_weather_info .todays .content .visibility_feels_like {
 }
 section.weather_info .day_weather_info .todays .content .visibility_feels_like > p {
   color: var(--grey-color);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 section.weather_info .day_weather_info .todays .content .visibility_feels_like .content {
   display: flex;
@@ -320,10 +373,72 @@ section.weather_info .day_weather_info .todays .content .visibility_feels_like .
   margin-bottom: 5px;
 }
 section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .visibility .info span, section.weather_info .day_weather_info .todays .content .visibility_feels_like .content .feels_like .info span {
-  font-size: 30px;
+  font-size: 25px;
+}
+@media (max-width: 992px) {
+  section.weather_info .day_weather_info .todays .content .air_quality .info > p span {
+    font-size: 20px !important;
+  }
+  section.weather_info .day_weather_info .todays .content .sunrise_sunset .content > div i,
+  section.weather_info .day_weather_info .todays .content .humidity_pressure .content > div i,
+  section.weather_info .day_weather_info .todays .content .visibility_feels_like .content > div i {
+    font-size: 30px !important;
+  }
+  section.weather_info .day_weather_info .todays .content .sunrise_sunset .content > div .info span,
+  section.weather_info .day_weather_info .todays .content .humidity_pressure .content > div .info span,
+  section.weather_info .day_weather_info .todays .content .visibility_feels_like .content > div .info span {
+    font-size: 20px !important;
+  }
+  section.weather_info .day_weather_info .todays .content > div {
+    padding: 10px !important;
+  }
+}
+@media (max-width: 992px) {
+  section.weather_info .day_weather_info .todays {
+    padding: 10px !important;
+  }
+  section.weather_info .day_weather_info .todays > p {
+    font-size: 25px;
+  }
 }
 section.weather_info .day_weather_info .today_at {
-  background-color: orange;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  padding: 20px;
+}
+section.weather_info .day_weather_info .today_at .title {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+section.weather_info .day_weather_info .today_at .boxes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+section.weather_info .day_weather_info .today_at .boxes .box {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+section.weather_info .day_weather_info .today_at .boxes .box .time, section.weather_info .day_weather_info .today_at .boxes .box .degree {
+  font-size: 18px;
+}
+section.weather_info .day_weather_info .today_at .boxes .box img {
+  width: 80px;
+}
+@media (max-width: 767px) {
+  section.weather_info .day_weather_info .today_at .boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 992px) {
+  section.weather_info .day_weather_info .today_at {
+    padding: 10px !important;
+  }
+  section.weather_info .day_weather_info .today_at .title {
+    font-size: 25px !important;
+  }
 }
 @media (max-width: 992px) {
   section.weather_info {

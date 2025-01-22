@@ -79,26 +79,35 @@ header {
 // Start Section
 section.weather_info {
     width: 100%;
-    @include flex_between;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
     aside {
         width: 30%;
         height: 100%;
-        padding: 10px;
+        padding: 0 10px;
         .now {
             box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
             border-radius: var(--border-radius-card);
             padding: 20px;
             margin-bottom: 20px;
             .info {
-                > p {
-                    font-size: 30px;
+                div.header_info {
+                    margin-bottom: 20px;
+                    p.title_now {font-size: 30px}
+                    @include flex_between;
+                    .add_btn {
+                        cursor: pointer;
+                        background-color: green;
+                        padding: 10px; border-radius: var(--border-radius);
+                        transition: var(--transition);
+                        i {font-size: 20px; color: white;}
+                        &:hover {background-color: #3eae3e;}
+                    }
                 }
                 p {
                     span {
                         font-size: 60px;
-                    }
-                    img {
-
                     }
                 }
             }
@@ -112,10 +121,28 @@ section.weather_info {
                 }
             }
         }
-        .favorite {
+        .favorites {
             box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
             border-radius: var(--border-radius-card);
             padding: 20px;
+            h3 { margin-bottom: 20px; } 
+            .favorite {
+                @include flex_between;
+                border-radius: var(--border-radius);
+                box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                padding: 10px;
+                > p {font-size: 20px;}
+                p.location_value span {color: var(--grey-color); font-size: 15px;}
+                &:not(:last-child) {margin-bottom: 20px;}
+                .trach {
+                    cursor: pointer;
+                    transition: var(--transition);
+                    &:hover {
+                        i {color: red;}
+                    }
+                    i {color: var(--danger);}
+                }
+            }
         }
     }
     .day_weather_info {
@@ -127,7 +154,7 @@ section.weather_info {
             margin-bottom: 20px;
             padding: 20px;
             > p {
-                font-size: 30px;
+                font-size: 25px;
                 margin-bottom: 10px;
             }
             .content {
@@ -141,7 +168,7 @@ section.weather_info {
                     padding: 15px;
                     > p {
                         color: var(--grey-color);
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
                     }
                     .info {
                         text-align: center;
@@ -166,7 +193,7 @@ section.weather_info {
                     padding: 10px;
                     > p {
                         color: var(--grey-color);
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
                     }
                     .content {
                         @include flex_between;
@@ -175,7 +202,7 @@ section.weather_info {
                             i {font-size: 40px; margin-right: 20px;}
                             .info {
                                 p {color: var(--grey-color); margin-bottom: 5px;}
-                                span {font-size: 30px;}
+                                span {font-size: 25px;}
                             }
                         }
                         .sunrise {
@@ -190,7 +217,7 @@ section.weather_info {
                     padding: 10px;
                     > p {
                         color: var(--grey-color);
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
                     }
                     .content {
                         @include flex_between;
@@ -200,7 +227,7 @@ section.weather_info {
                             // img {margin-right: 20px;}
                             .info {
                                 p {color: var(--grey-color);  margin-bottom: 5px;}
-                                span {font-size: 30px;}
+                                span {font-size: 25px;}
                             }
                         }
                         .humidity {
@@ -215,7 +242,7 @@ section.weather_info {
                     padding: 10px;
                     > p {
                         color: var(--grey-color);
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
                     }
                     .content {
                         @include flex_between;
@@ -224,7 +251,7 @@ section.weather_info {
                             i {font-size: 40px; margin-right: 20px;}
                             .info {
                                 p {color: var(--grey-color);  margin-bottom: 5px;}
-                                span {font-size: 30px;}
+                                span {font-size: 25px;}
                             }
                         }
                         .visibility {
@@ -233,11 +260,59 @@ section.weather_info {
                         }
                     }
                 }
+                @media (max-width: 992px) {
+                    .air_quality .info > p span {font-size: 20px !important;}
+                    .sunrise_sunset .content > div i,  
+                    .humidity_pressure .content > div i,
+                    .visibility_feels_like .content > div i {font-size: 30px !important;} 
+
+                    .sunrise_sunset .content > div .info span, 
+                    .humidity_pressure .content > div .info span, 
+                    .visibility_feels_like .content > div .info span {font-size: 20px !important;} 
+
+                    > div {padding: 10px !important;}
+
+                }
             }
+            @media (max-width: 992px) {
+                padding: 10px !important;
+                >p {font-size: 25px;}
+            }
+
         }
 
         .today_at {
-            background-color: orange;
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+            padding: 20px;
+            .title {
+                font-size: 25px;
+                margin-bottom: 10px;
+                font-weight: normal;
+            }
+            .boxes {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 10px;
+                .box {
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    border-radius: 5px;
+                    padding: 10px;
+                    text-align: center;
+                    .time, .degree {
+                        font-size: 18px;
+                    }
+                    img {
+                        width: 80px;
+                    }
+                }
+                @media (max-width: 767px) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            @media (max-width: 992px) {
+                padding: 10px !important;
+                .title {font-size: 25px !important;}
+            }
         }
     }
     @media (max-width: 992px) {
@@ -257,7 +332,6 @@ section.weather_info {
         .day_weather_info .todays {
             grid-template-columns: repeat(1, 1fr);
         }
-
     }
 }
 
