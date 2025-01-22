@@ -83,95 +83,92 @@ body {
 }
 
 header {
-  position: relative;
-}
-header section {
-  height: 100px;
+  height: 100%;
+  margin: 30px 0;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header section .logo img {
+header .logo img {
   width: 40px;
   margin-right: 10px;
 }
-header section .logo span {
+header .logo span {
   font-size: 35px;
   font-weight: 700;
 }
-header section .search_bar {
+header .search_bar {
   width: 50%;
   padding: 10px 15px;
   border-radius: var(--border-radius-search);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-header section .search_bar .bar_input {
+header .search_bar .bar_input {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header section .search_bar .bar_input input, header section .search_bar .bar_input button {
+header .search_bar .bar_input input, header .search_bar .bar_input button {
   padding: 10px;
   border-radius: var(--border-radius-search);
 }
-header section .search_bar .bar_input input {
+header .search_bar .bar_input input {
   width: 70%;
   font-size: 16px;
 }
-header section .search_bar .bar_input button {
+header .search_bar .bar_input button {
   width: 25%;
 }
-header section .info {
+header .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header section .info button.current_location_btn {
+header .info button.current_location_btn {
   padding: 15px;
   border-radius: var(--border-radius);
   margin-right: 10px;
 }
-header section .info button.current_location_btn i {
+header .info button.current_location_btn i {
   margin-right: 5px;
 }
-header section .info button.mode_dark_light {
+header .info button.mode_dark_light {
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
-header section .info button.mode_dark_light i {
+header .info button.mode_dark_light i {
   font-size: 16px;
 }
 @media (max-width: 992px) {
-  header section {
+  header {
     flex-direction: column;
     padding: 20px;
     height: 100%;
   }
-  header section .search_bar {
+  header .search_bar {
     margin: 30px 0;
     width: 100%;
   }
 }
-header .cities_list {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  background-color: white;
-  padding: 20px;
-}
-header .cities_list p {
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+.cities_list {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 30px 0;
+  border-radius: var(--border-radius-card);
   padding: 10px;
 }
-header .cities_list p:not(:last-child) {
+.cities_list p {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+}
+.cities_list p:not(:last-child) {
   margin-bottom: 10px;
 }
-header .cities_list p i {
+.cities_list p i {
   margin-right: 10px;
 }
 

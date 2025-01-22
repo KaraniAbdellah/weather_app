@@ -12,86 +12,83 @@ body {
 
 // Start Header
 header {
-    position: relative;
-    section {
-        height: 100px;
-        margin-bottom: 30px;
-        @include flex_between;
-        .logo {
-            img {
-                width: 40px;
-                margin-right: 10px;
-            }
-            span {
-                font-size: 35px;
-                font-weight: 700;
-            }
+    height: 100%;
+    margin: 30px 0;
+    margin-bottom: 30px;
+    @include flex_between;
+    .logo {
+        img {
+            width: 40px;
+            margin-right: 10px;
         }
-        .search_bar {
-            width: 50%;
-            padding: 10px 15px;
-            border-radius: var(--border-radius-search);
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            .bar_input {
-                @include flex_between;
-                input, button {
-                    padding: 10px;
-                    border-radius: var(--border-radius-search);
-                }
-                input {
-                    width: 70%;
-                    font-size: 16px;
-                }
-                button {
-                    width: 25%;
-                }
-            }
-        }
-        .info {
-            @include flex_between;
-            button.current_location_btn {
-                padding: 15px;
-                border-radius: var(--border-radius);
-                margin-right: 10px;
-                i {margin-right: 5px;}
-            }
-            button.mode_dark_light {
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                i {
-                    font-size: 16px;
-                }
-            }
-        }
-        @media (max-width: 992px) {
-            flex-direction: column;
-            padding: 20px;
-            height: 100%;
-            .search_bar {
-                margin: 30px 0;
-                width: 100%;
-            }
-            
+        span {
+            font-size: 35px;
+            font-weight: 700;
         }
     }
-    .cities_list {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
+    .search_bar {
         width: 50%;
-        transform: translateX(-50%);
-        z-index: 1000;
-        background-color: white;
-        padding: 20px;
-        p {
-            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-            padding: 10px;
-            &:not(:last-child) {
-                margin-bottom: 10px;
+        padding: 10px 15px;
+        border-radius: var(--border-radius-search);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        .bar_input {
+            @include flex_between;
+            // margin-bottom: 10px;
+            input, button {
+                padding: 10px;
+                border-radius: var(--border-radius-search);
             }
-            i {margin-right: 10px;}
+            input {
+                width: 70%;
+                font-size: 16px;
+            }
+            button {
+                width: 25%;
+            }
         }
+    }
+    .info {
+        @include flex_between;
+        button.current_location_btn {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-right: 10px;
+            i {margin-right: 5px;}
+        }
+        button.mode_dark_light {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            i {
+                font-size: 16px;
+            }
+        }
+    }
+    @media (max-width: 992px) {
+        flex-direction: column;
+        padding: 20px;
+        height: 100%;
+        .search_bar {
+            margin: 30px 0;
+            width: 100%;
+        }
+        
+    }
+}
+.cities_list {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin: 30px 0;
+    border-radius: var(--border-radius-card);
+    padding: 10px;
+    p {
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        padding: 10px;
+        border-radius: var(--border-radius);
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        i {margin-right: 10px;}
     }
 }
 // End Header

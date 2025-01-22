@@ -25,29 +25,64 @@ mode_dark_light.addEventListener("click", function () {
 
 
 // Search Bar Seggestion
-let search_btn = document.querySelector("button.search_btn");
-let search_input = document.querySelector(".bar_input input");
-let cities_list = document.querySelector(".cities_list");
-search_btn.addEventListener("click", function () {
-    let my_api_key = "pk.8c7aff324a3accac1c7e5b2f0df1dde5";
+const search_btn = document.querySelector("button.search_btn");
+const search_input = document.querySelector(".bar_input input");
+const cities_list = document.querySelector(".cities_list");
+
+async function fetchCities() {
     let letter = search_input.value;
-    fetch(`https://api.locationiq.com/v1/autocomplete?key=${my_api_key}&q=${letter}`).then((reponse) => {
-        let data = reponse.json();
-        return data;
-    }).then((data) => {
-        data.forEach((ele) => {
-            let myParagraph = document.createElement("p");
-            myParagraph.innerHTML = `
-                <i class="fa-solid fa-location-dot"></i>
-                <span>${ele.address.name}</span>
-            `;
-            cities_list.append(myParagraph);
+    const my_api_key = "pk.8c7aff324a3accac1c7e5b2f0df1dde5";
+    try {
+        const reponse = await fetch(`https://api.locationiq.com/v1/autocomplete?key=${my_api_key}&q=${letter}`);
+        return await reponse.json();
+    } catch (error) {
+        return []; 
+    }
+}
+
+async function fetchCities() {
+    const letter = search_input.value.trim();
+    const my_api_key = "pk.8c7aff324a3accac1c7e5b2f0df1dde5";
+    try {
+        const response = await fetch(`https://api.locationiq.com/v1/autocomplete?key=${my_api_key}&q=${letter}`);
+        return await response.json();
+    } catch (error) {
+        console.error("Error Fecthing The Data To Get The Suggestion ...");
+        return [];
+    }
+}
+
+search_input.addEventListener("input", async function () {
+    const data = await fetchCities();
+    cities_list.innerHTML = data.slice(0, 3).map(city => `
+        <p>
+            <i class="fa-solid fa-location-dot white_color"></i>
+            <span class="white_color">${city.address.name}</span>
+        </p>
+    `).join("");
+    document.querySelectorAll(".cities_list p").forEach(ele => {
+        ele.addEventListener("click", function(){
+            search_input.value = ele.firstElementChild.nextElementSibling.innerText;
         });
-    }).catch((err) => {
-        console.log("error fetching data...");
     });
 });
 
+search_btn.addEventListener("click", function() {
+    cities_list.innerHTML = "";
+});
+
+
+
+
+// Get The Info About Weather [Default is Current Location]
+async function getCurrentLocation() {
+    let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
+    let reponse = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key}`);
+    let data = 
+    console.log(await reponse.json()); 
+}
+
+getCurrentLocation();
 
 
 
