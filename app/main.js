@@ -78,12 +78,14 @@ search_btn.addEventListener("click", function() {
 async function getCurrentLocation() {
     let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
     let reponse = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key}`);
-    let data = 
-    console.log(await reponse.json()); 
+    let data = await reponse.json();
+    return data.city.name;
 }
 
-getCurrentLocation();
-
+// Set The Weather All Info
+function SetWeatherInfo() {
+    let now_temp = document.querySelector("");
+}
 
 
 
