@@ -149,9 +149,9 @@ section.weather_info {
                 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
                 padding: 10px;
                 > p {font-size: 20px;}
-                p.location_value span {color: var(--grey-color); font-size: 15px;}
+                p.location_value_fav span {color: var(--grey-color); font-size: 15px;}
                 &:not(:last-child) {margin-bottom: 20px;}
-                .trach {
+                .trach_fav {
                     cursor: pointer;
                     transition: var(--transition);
                     &:hover {
@@ -183,7 +183,7 @@ section.weather_info {
                 padding: 10px;
                 gap: 15px;
                 .air_quality {
-                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 15px;
                     > p {
@@ -208,7 +208,7 @@ section.weather_info {
                     }
                 }
                 .sunrise_sunset {
-                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
                     > p {
@@ -232,7 +232,7 @@ section.weather_info {
                     }
                 }
                 .humidity_pressure {
-                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
                     > p {
@@ -257,7 +257,7 @@ section.weather_info {
                     }
                 }
                 .visibility_feels_like {
-                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+                    box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
                     > p {

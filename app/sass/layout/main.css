@@ -243,21 +243,21 @@ section.weather_info aside .favorites .favorite {
 section.weather_info aside .favorites .favorite > p {
   font-size: 20px;
 }
-section.weather_info aside .favorites .favorite p.location_value span {
+section.weather_info aside .favorites .favorite p.location_value_fav span {
   color: var(--grey-color);
   font-size: 15px;
 }
 section.weather_info aside .favorites .favorite:not(:last-child) {
   margin-bottom: 20px;
 }
-section.weather_info aside .favorites .favorite .trach {
+section.weather_info aside .favorites .favorite .trach_fav {
   cursor: pointer;
   transition: var(--transition);
 }
-section.weather_info aside .favorites .favorite .trach:hover i {
+section.weather_info aside .favorites .favorite .trach_fav:hover i {
   color: var(--danger);
 }
-section.weather_info aside .favorites .favorite .trach i {
+section.weather_info aside .favorites .favorite .trach_fav i {
   color: red;
 }
 @media (max-width: 992px) {
@@ -286,7 +286,7 @@ section.weather_info .day_weather_info .todays .content {
   gap: 15px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality {
-  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 15px;
 }
@@ -311,7 +311,7 @@ section.weather_info .day_weather_info .todays .content .air_quality .info > p >
   font-size: 24px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset {
-  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }
@@ -341,7 +341,7 @@ section.weather_info .day_weather_info .todays .content .sunrise_sunset .content
   font-size: 25px;
 }
 section.weather_info .day_weather_info .todays .content .humidity_pressure {
-  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }
@@ -371,7 +371,7 @@ section.weather_info .day_weather_info .todays .content .humidity_pressure .cont
   font-size: 25px;
 }
 section.weather_info .day_weather_info .todays .content .visibility_feels_like {
-  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 0px 1px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }

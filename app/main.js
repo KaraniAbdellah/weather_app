@@ -69,6 +69,7 @@ search_input.addEventListener("input", async function () {
 
 search_btn.addEventListener("click", function() {
     cities_list.innerHTML = "";
+    search_input.value = "";
 });
 
 
@@ -84,8 +85,10 @@ async function getCurrentLocation() {
 
 // Set The Weather All Info
 function SetWeatherInfo() {
-    let now_temp = document.querySelector("");
+    let now_temp = document.querySelector("span.tem_value");
+    console.log(now_temp);
 }
+SetWeatherInfo();
 
 
 
