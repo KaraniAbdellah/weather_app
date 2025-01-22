@@ -12,69 +12,89 @@ body {
 
 // Start Header
 header {
-    height: 100px;
-    margin-bottom: 30px;
-    @include flex_between;
-    .logo {
-        img {
-            width: 40px;
-            margin-right: 10px;
-        }
-        span {
-            font-size: 35px;
-            font-weight: 700;
-        }
-    }
-    .search_bar {
-        width: 50%;
-        padding: 10px 15px;
-        border-radius: var(--border-radius-search);
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        .bar_input {
-            @include flex_between;
-            input, button {
-                padding: 10px;
-                border-radius: var(--border-radius-search);
-            }
-            input {
-                width: 70%;
-                font-size: 16px;
-            }
-            button {
-                width: 25%;
-            }
-        }
-    }
-    .info {
+    position: relative;
+    section {
+        height: 100px;
+        margin-bottom: 30px;
         @include flex_between;
-        button.current_location_btn {
-            padding: 15px;
-            border-radius: var(--border-radius);
-            margin-right: 10px;
-            i {margin-right: 5px;}
-        }
-        button.mode_dark_light {
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            i {
-                font-size: 16px;
+        .logo {
+            img {
+                width: 40px;
+                margin-right: 10px;
+            }
+            span {
+                font-size: 35px;
+                font-weight: 700;
             }
         }
-    }
-    @media (max-width: 992px) {
-        flex-direction: column;
-        padding: 20px;
-        height: 100%;
         .search_bar {
-            margin: 30px 0;
-            width: 100%;
+            width: 50%;
+            padding: 10px 15px;
+            border-radius: var(--border-radius-search);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            .bar_input {
+                @include flex_between;
+                input, button {
+                    padding: 10px;
+                    border-radius: var(--border-radius-search);
+                }
+                input {
+                    width: 70%;
+                    font-size: 16px;
+                }
+                button {
+                    width: 25%;
+                }
+            }
         }
-        
+        .info {
+            @include flex_between;
+            button.current_location_btn {
+                padding: 15px;
+                border-radius: var(--border-radius);
+                margin-right: 10px;
+                i {margin-right: 5px;}
+            }
+            button.mode_dark_light {
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                i {
+                    font-size: 16px;
+                }
+            }
+        }
+        @media (max-width: 992px) {
+            flex-direction: column;
+            padding: 20px;
+            height: 100%;
+            .search_bar {
+                margin: 30px 0;
+                width: 100%;
+            }
+            
+        }
+    }
+    .cities_list {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background-color: white;
+        padding: 20px;
+        p {
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            padding: 10px;
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+            i {margin-right: 10px;}
+        }
     }
 }
 // End Header
-
 
 // Start Section
 section.weather_info {
@@ -98,11 +118,11 @@ section.weather_info {
                     @include flex_between;
                     .add_btn {
                         cursor: pointer;
-                        background-color: green;
+                        background-color: #3eae3e;
                         padding: 10px; border-radius: var(--border-radius);
                         transition: var(--transition);
                         i {font-size: 20px; color: white;}
-                        &:hover {background-color: #3eae3e;}
+                        &:hover {background-color: green;}
                     }
                 }
                 p {
@@ -163,7 +183,8 @@ section.weather_info {
                 padding: 10px;
                 gap: 15px;
                 .air_quality {
-                    box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+                    box-shadow: rgb(143 133 133 / 44%) 0px 0px 5px 0px;
+                    
                     border-radius: var(--border-radius);
                     padding: 15px;
                     > p {
@@ -188,7 +209,7 @@ section.weather_info {
                     }
                 }
                 .sunrise_sunset {
-                    box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+                    box-shadow: rgb(143 133 133 / 44%) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
                     > p {
@@ -212,7 +233,7 @@ section.weather_info {
                     }
                 }
                 .humidity_pressure {
-                    box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+                    box-shadow: rgb(143 133 133 / 44%) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
                     > p {
@@ -237,7 +258,7 @@ section.weather_info {
                     }
                 }
                 .visibility_feels_like {
-                    box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+                    box-shadow: rgb(143 133 133 / 44%) 0px 0px 5px 0px;
                     border-radius: var(--border-radius);
                     padding: 10px;
                     > p {
@@ -283,6 +304,7 @@ section.weather_info {
 
         .today_at {
             box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+            border-radius: var(--border-radius-card);
             padding: 20px;
             .title {
                 font-size: 25px;

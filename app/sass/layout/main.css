@@ -83,73 +83,96 @@ body {
 }
 
 header {
+  position: relative;
+}
+header section {
   height: 100px;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header .logo img {
+header section .logo img {
   width: 40px;
   margin-right: 10px;
 }
-header .logo span {
+header section .logo span {
   font-size: 35px;
   font-weight: 700;
 }
-header .search_bar {
+header section .search_bar {
   width: 50%;
   padding: 10px 15px;
   border-radius: var(--border-radius-search);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-header .search_bar .bar_input {
+header section .search_bar .bar_input {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header .search_bar .bar_input input, header .search_bar .bar_input button {
+header section .search_bar .bar_input input, header section .search_bar .bar_input button {
   padding: 10px;
   border-radius: var(--border-radius-search);
 }
-header .search_bar .bar_input input {
+header section .search_bar .bar_input input {
   width: 70%;
   font-size: 16px;
 }
-header .search_bar .bar_input button {
+header section .search_bar .bar_input button {
   width: 25%;
 }
-header .info {
+header section .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header .info button.current_location_btn {
+header section .info button.current_location_btn {
   padding: 15px;
   border-radius: var(--border-radius);
   margin-right: 10px;
 }
-header .info button.current_location_btn i {
+header section .info button.current_location_btn i {
   margin-right: 5px;
 }
-header .info button.mode_dark_light {
+header section .info button.mode_dark_light {
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
-header .info button.mode_dark_light i {
+header section .info button.mode_dark_light i {
   font-size: 16px;
 }
 @media (max-width: 992px) {
-  header {
+  header section {
     flex-direction: column;
     padding: 20px;
     height: 100%;
   }
-  header .search_bar {
+  header section .search_bar {
     margin: 30px 0;
     width: 100%;
   }
+}
+header .cities_list {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+}
+header .cities_list p {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 10px;
+}
+header .cities_list p:not(:last-child) {
+  margin-bottom: 10px;
+}
+header .cities_list p i {
+  margin-right: 10px;
 }
 
 section.weather_info {
@@ -180,7 +203,7 @@ section.weather_info aside .now .info div.header_info p.title_now {
 }
 section.weather_info aside .now .info div.header_info .add_btn {
   cursor: pointer;
-  background-color: green;
+  background-color: #3eae3e;
   padding: 10px;
   border-radius: var(--border-radius);
   transition: var(--transition);
@@ -190,7 +213,7 @@ section.weather_info aside .now .info div.header_info .add_btn i {
   color: white;
 }
 section.weather_info aside .now .info div.header_info .add_btn:hover {
-  background-color: #3eae3e;
+  background-color: green;
 }
 section.weather_info aside .now .info p span {
   font-size: 60px;
@@ -261,7 +284,7 @@ section.weather_info .day_weather_info .todays .content {
   gap: 15px;
 }
 section.weather_info .day_weather_info .todays .content .air_quality {
-  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 15px;
 }
@@ -286,7 +309,7 @@ section.weather_info .day_weather_info .todays .content .air_quality .info > p >
   font-size: 24px;
 }
 section.weather_info .day_weather_info .todays .content .sunrise_sunset {
-  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }
@@ -316,7 +339,7 @@ section.weather_info .day_weather_info .todays .content .sunrise_sunset .content
   font-size: 25px;
 }
 section.weather_info .day_weather_info .todays .content .humidity_pressure {
-  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }
@@ -346,7 +369,7 @@ section.weather_info .day_weather_info .todays .content .humidity_pressure .cont
   font-size: 25px;
 }
 section.weather_info .day_weather_info .todays .content .visibility_feels_like {
-  box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 5px 0px;
+  box-shadow: rgba(143, 133, 133, 0.44) 0px 0px 5px 0px;
   border-radius: var(--border-radius);
   padding: 10px;
 }
@@ -403,6 +426,7 @@ section.weather_info .day_weather_info .todays .content .visibility_feels_like .
 }
 section.weather_info .day_weather_info .today_at {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  border-radius: var(--border-radius-card);
   padding: 20px;
 }
 section.weather_info .day_weather_info .today_at .title {
