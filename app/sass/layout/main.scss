@@ -31,6 +31,7 @@ header {
         padding: 10px 15px;
         border-radius: var(--border-radius-search);
         box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px;
+        background-color: white;
         .bar_input {
             @include flex_between;
             // margin-bottom: 10px;
@@ -39,6 +40,7 @@ header {
                 border-radius: var(--border-radius-search);
             }
             input {
+                background-color: white;
                 width: 70%;
                 font-size: 16px;
             }

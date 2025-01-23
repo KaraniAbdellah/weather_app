@@ -111,6 +111,7 @@ header .search_bar {
   padding: 10px 15px;
   border-radius: var(--border-radius-search);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px;
+  background-color: white;
 }
 header .search_bar .bar_input {
   display: flex;
@@ -122,6 +123,7 @@ header .search_bar .bar_input input, header .search_bar .bar_input button {
   border-radius: var(--border-radius-search);
 }
 header .search_bar .bar_input input {
+  background-color: white;
   width: 70%;
   font-size: 16px;
 }

@@ -36,14 +36,6 @@ function ChangeToDarkMode() {
         ele.classList.toggle("dark_bgColor");
         ele.classList.toggle("white_bgColor");
     });
-    // Change The Background Color for Search Bar
-    let search_bar = document.querySelector(".search_bar");
-    let bar_input_search = document.querySelector(".bar_input input");
-    search_bar.classList.toggle("white_bgColor");
-    search_bar.classList.toggle("dark_bgColor");
-    bar_input_search.classList.toggle("white_bgColor");
-    bar_input_search.classList.toggle("dark_bgColor");
-
 }
 
 // Function That Change Page to Light Mode
@@ -65,13 +57,6 @@ function ChangeToLightMode() {
         ele.classList.toggle("dark_bgColor");
         ele.classList.toggle("white_bgColor");
     });
-    // Change The Background Color for Search Bar
-    let search_bar = document.querySelector(".search_bar");
-    let bar_input_search = document.querySelector(".bar_input input");
-    search_bar.classList.toggle("white_bgColor");
-    search_bar.classList.toggle("dark_bgColor");
-    bar_input_search.classList.toggle("white_bgColor");
-    bar_input_search.classList.toggle("dark_bgColor");
 }
 // :::::::::::::::::::::: End Dark Mode
 
