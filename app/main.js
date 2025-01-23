@@ -123,6 +123,7 @@ async function getCurrentLocation() {
 let now_temp = document.querySelector("span.tem_value");
 let today = document.querySelector(".today_value_date span");
 let current_location = document.querySelector(".location_value span");
+let weather_img = now_temp.nextElementSibling;
 // Todays HightLights Section Variables
 let pm25 = document.querySelector("span.pm25");
 let so2 = document.querySelector("span.so2");
@@ -137,22 +138,76 @@ let visibility_content = document.querySelector(".visibility_content");
 let feels_like_content = document.querySelector(".feels_like_content");
 
 
-function SetWeatherInfoDefault() {
+// Function To Get The Current Location
+async function fetchCurrentLocation() {
+    let my_api_key_location = "f89627d3b9004e27ac2b2a7d1baedaab";
+    let reponse_cur = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key_location}`);
+    let data = await reponse_cur.json();
+    console.log(data);
+}
+
+// Set The Image
+function SetImage(WeatherState) {
+    console.log(WeatherState);
+    weather_img.src = "images/logo.png";
+}
+
+// Set Date
+function SetDateForToday() {
+    const date = new Date();
+    const monthIndex = date.getMonth();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthName = months[monthIndex];
+
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const dayName = daysOfWeek[date.getDay()];
+
+    today.textContent = `${dayName}  ${date.getDate()}, ${monthName}`;
+}
+
+async function getWeatherApi() {
+    let my_api_key_weather = "76d59da09bf6ff9fea4a24d945516588";
+    let city_name = "london";
+
+    let reponse1 = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${my_api_key_weather}`);
+    let data1 = await reponse1.json();
+
+    let lat = data1.coord.lat; let lon = data1.coord.lon;
+    let reponse2 = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${my_api_key_weather}`);
+    let data2 = await reponse2.json();
+
+    // Set The Items With Weather Info
+    now_temp.textContent = (Number(data1.main.temp) - 273.15).toFixed(2);
+    current_location.textContent = data1.name;
+    SetDateForToday();
+    SetImage(data1.weather[0].main);
+
+    if (data2.list && data2.list[0]) {
+        pm25.textContent = data2.list[0].components.pm2_5;
+        so2.textContent = data2.list[0].components.so2;
+        no2.textContent = data2.list[0].components.no2;
+        o3.textContent = data2.list[0].components.o3;
+    }
     
+    sunrise_content.textContent = data1.sys.sunrise / 100000;
+    sunset_content.textContent = data1.sys.sunset / 100000;
+    pressure_content.textContent = data1.main.pressure;
+    humidity_content.textContent = data1.main.humidity;
+    visibility_content.textContent = data1.visibility;
+    feels_like_content.textContent = data1.main.feels_like;
 }
-function getWeatherInfo() {
+getWeatherApi();
 
-}
-function SetWeatherInfo() {
 
-    console.log(now_temp, today, current_location);
-}
-SetWeatherInfo();
 
 search_btn.addEventListener("click", function() {
+    // Get The City Name && Set the Weather Info
+    let city_name = search_input.value;
+    // getWeatherApi(city_name);
+
+    // Set The Inputs [list of suggestion and input value]
     cities_list.innerHTML = "";
     search_input.value = "";
-    // Get The City Name
 
 });
 // :::::::::::::::::::::: End Getting Weather Info
