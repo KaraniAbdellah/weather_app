@@ -62,6 +62,7 @@ function ChangeToLightMode() {
 
 
 
+// :::::::::::::::::::::: Start Search Bar
 // Search Bar Seggestion
 const search_btn = document.querySelector("button.search_btn");
 const search_input = document.querySelector(".bar_input input");
@@ -111,10 +112,10 @@ search_btn.addEventListener("click", function() {
     cities_list.innerHTML = "";
     search_input.value = "";
 });
+// :::::::::::::::::::::: End Search Bar
 
 
-
-
+// :::::::::::::::::::::: Start Getting Weather Info
 // Get The Info About Weather [Default is Current Location]
 async function getCurrentLocation() {
     let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
@@ -123,13 +124,37 @@ async function getCurrentLocation() {
     return data.city.name;
 }
 
-// Set The Weather All Info
+// Now Section
+let now_temp = document.querySelector("span.tem_value");
+let today = document.querySelector(".today_value_date span");
+let current_location = document.querySelector(".location_value span");
+// Todays HightLights Section
+let pm25 = document.querySelector("span.pm25");
+let so2 = document.querySelector("span.so2");
+let no2 = document.querySelector("span.no2");
+let o3 = document.querySelector("span.o3");
+
+let sunrise_content = document.querySelector(".sunrise_content");
+let sunset_content = document.querySelector(".sunset_content");
+let pressure_content = document.querySelector(".pressure_content");
+let humidity_content = document.querySelector(".humidity_content");
+let visibility_content = document.querySelector(".visibility_content");
+let feels_like_content = document.querySelector(".feels_like_content");
+
+
+
+function SetWeatherInfoDefault() {
+
+}
+function getWeatherInfo() {
+
+}
 function SetWeatherInfo() {
-    let now_temp = document.querySelector("span.tem_value");
-    console.log(now_temp);
+
+    console.log(now_temp, today, current_location);
 }
 SetWeatherInfo();
-
+// :::::::::::::::::::::: End Getting Weather Info
 
 
 
