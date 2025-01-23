@@ -184,32 +184,37 @@ async function getWeatherApi(city_name) {
     let my_api_key_weather = "76d59da09bf6ff9fea4a24d945516588";
     // let city_name = "azilal";
 
-    let reponse1 = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${my_api_key_weather}`);
-    let data1 = await reponse1.json();
-
-    let lat = data1.coord.lat; let lon = data1.coord.lon;
-    let reponse2 = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${my_api_key_weather}`);
-    let data2 = await reponse2.json();
-
-    // Set The Items With Weather Info
-    now_temp.textContent = (Number(data1.main.temp) - 273.15).toFixed(2);
-    current_location.textContent = data1.name;
-    SetDateForToday();
-    SetImage(data1.weather[0].main);
-
-    if (data2.list && data2.list[0]) {
-        pm25.textContent = (data2.list[0].components.pm2_5).toFixed(1);
-        so2.textContent = (data2.list[0].components.so2).toFixed(1);
-        no2.textContent = (data2.list[0].components.no2).toFixed(1);
-        o3.textContent = (data2.list[0].components.o3).toFixed(1);
-    }
+    try {
+        let reponse1 = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${my_api_key_weather}`);
+        let data1 = await reponse1.json();
     
-    sunrise_content.textContent = new Date(data1.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    sunset_content.textContent = new Date(data1.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    pressure_content.textContent = data1.main.pressure;
-    humidity_content.textContent = data1.main.humidity;
-    visibility_content.textContent = (data1.visibility / 1000).toFixed(1);
-    feels_like_content.textContent = (data1.main.feels_like - 273.15).toFixed(2);
+        let lat = data1.coord.lat; let lon = data1.coord.lon;
+        let reponse2 = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${my_api_key_weather}`);
+        let data2 = await reponse2.json();
+    
+        // Set The Items With Weather Info
+        now_temp.textContent = (Number(data1.main.temp) - 273.15).toFixed(2);
+        current_location.textContent = data1.name;
+        SetDateForToday();
+        SetImage(data1.weather[0].main);
+    
+        if (data2.list && data2.list[0]) {
+            pm25.textContent = (data2.list[0].components.pm2_5).toFixed(1);
+            so2.textContent = (data2.list[0].components.so2).toFixed(1);
+            no2.textContent = (data2.list[0].components.no2).toFixed(1);
+            o3.textContent = (data2.list[0].components.o3).toFixed(1);
+        }
+        
+        sunrise_content.textContent = new Date(data1.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        sunset_content.textContent = new Date(data1.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        pressure_content.textContent = data1.main.pressure;
+        humidity_content.textContent = data1.main.humidity;
+        visibility_content.textContent = (data1.visibility / 1000).toFixed(1);
+        feels_like_content.textContent = (data1.main.feels_like - 273.15).toFixed(2);
+    } catch (error) {
+        console.log("error fetching...");
+    }
+
 }
 
 search_btn.addEventListener("click", function() {
@@ -224,8 +229,17 @@ search_btn.addEventListener("click", function() {
 });
 
 // Set Info As Default
-document.addEventListener("DOMContentLoaded", fetchCurrentLocation());
+document.addEventListener("DOMContentLoaded", fetchCurrentLocation);
+
+// Custom The Current Location
+let current_location_btn = document.querySelector(".current_location_btn");
+current_location_btn.addEventListener("click", fetchCurrentLocation);
 // :::::::::::::::::::::: End Getting Weather Info
+
+
+
+
+
 
 
 
