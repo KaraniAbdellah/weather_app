@@ -2,12 +2,20 @@
   color: white !important;
 }
 
+.white_bgColor_body {
+  background-color: white;
+}
+
 .dark_color {
   color: black !important;
 }
 
+.dark_bgColor_body {
+  background-color: #000000;
+}
+
 .dark_bgColor {
-  background-color: #272727;
+  background-color: #232323;
 }
 
 .white_bgColor {
@@ -102,7 +110,7 @@ header .search_bar {
   width: 50%;
   padding: 10px 15px;
   border-radius: var(--border-radius-search);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px;
 }
 header .search_bar .bar_input {
   display: flex;
@@ -184,7 +192,7 @@ section.weather_info aside {
   padding: 0 10px;
 }
 section.weather_info aside .now {
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  box-shadow: #5b5b5b 0px 0px 1px;
   border-radius: var(--border-radius-card);
   padding: 20px;
   margin-bottom: 20px;
@@ -225,7 +233,7 @@ section.weather_info aside .now .date span {
   color: var(--grey-color);
 }
 section.weather_info aside .favorites {
-  box-shadow: rgba(53, 53, 53, 0.09) 0px 3px 12px;
+  box-shadow: #5b5b5b 0px 0px 1px;
   border-radius: var(--border-radius-card);
   padding: 20px;
 }
@@ -270,7 +278,7 @@ section.weather_info .day_weather_info {
   border-radius: var(--border-radius-card);
 }
 section.weather_info .day_weather_info .todays {
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  box-shadow: #5b5b5b 0px 0px 1px;
   border-radius: var(--border-radius-card);
   margin-bottom: 20px;
   padding: 20px;
@@ -427,7 +435,7 @@ section.weather_info .day_weather_info .todays .content .visibility_feels_like .
   }
 }
 section.weather_info .day_weather_info .today_at {
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  box-shadow: #5b5b5b 0px 0px 1px;
   border-radius: var(--border-radius-card);
   padding: 20px;
 }

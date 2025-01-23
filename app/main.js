@@ -1,26 +1,79 @@
+
+// :::::::::::::::::::::: Start Dark Mode
 // Change The Dark Mode
 let mode_dark_light = document.querySelector("button.mode_dark_light");
 mode_dark_light.addEventListener("click", function () {
-    if (document.body.classList.contains("dark_bgColor")) {
-        let elements_colors = document.querySelectorAll(".white_color");
-        elements_colors.forEach((ele) => {
-            ele.classList.toggle("dark_color");
-            ele.classList.toggle("white_color");
-        });
-        mode_dark_light.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-        document.body.classList.toggle("white_bgColor");
-        document.body.classList.toggle("dark_bgColor");
+    if (document.body.classList.contains("dark_bgColor_body")) {
+        ChangeToLightMode();
+        // Set The LocalStorage
+        window.localStorage.setItem("mode", "light");
     } else {
-        let elements_colors = document.querySelectorAll(".dark_color");
-        elements_colors.forEach((ele) => {
-            ele.classList.toggle("dark_color");
-            ele.classList.toggle("white_color");
-        });
-        mode_dark_light.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-        document.body.classList.toggle("white_bgColor");
-        document.body.classList.toggle("dark_bgColor");
+        ChangeToDarkMode();
+        window.localStorage.setItem("mode", "dark");
     }
 });
+
+// Save The User Mode
+let user_mode = window.localStorage.getItem("mode");
+if (user_mode == "light") ChangeToLightMode();
+
+// Function That Change Page to Dark Mode
+function ChangeToDarkMode() {
+    // Change The Text Color
+    let elements_colors = document.querySelectorAll(".dark_color");
+    elements_colors.forEach((ele) => {
+        ele.classList.toggle("dark_color");
+        ele.classList.toggle("white_color");
+    });
+    // Change The Icon for Mode
+    mode_dark_light.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+    // Change The Body Color
+    document.body.classList.toggle("white_bgColor_body");
+    document.body.classList.toggle("dark_bgColor_body");
+    // Change The Background Color
+    let dark_bgColor_ele = document.querySelectorAll(".white_bgColor");
+    dark_bgColor_ele.forEach((ele) => {
+        ele.classList.toggle("dark_bgColor");
+        ele.classList.toggle("white_bgColor");
+    });
+    // Change The Background Color for Search Bar
+    let search_bar = document.querySelector(".search_bar");
+    let bar_input_search = document.querySelector(".bar_input input");
+    search_bar.classList.toggle("white_bgColor");
+    search_bar.classList.toggle("dark_bgColor");
+    bar_input_search.classList.toggle("white_bgColor");
+    bar_input_search.classList.toggle("dark_bgColor");
+
+}
+
+// Function That Change Page to Light Mode
+function ChangeToLightMode() {
+    // Change The Text Color
+    let elements_colors = document.querySelectorAll(".white_color");
+    elements_colors.forEach((ele) => {
+        ele.classList.toggle("dark_color");
+        ele.classList.toggle("white_color");
+    });
+    // Change The Icon for Mode
+    mode_dark_light.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+    // Change The Body Color
+    document.body.classList.toggle("white_bgColor_body");
+    document.body.classList.toggle("dark_bgColor_body");
+    // Change The Background Color
+    let dark_bgColor_ele = document.querySelectorAll(".dark_bgColor");
+    dark_bgColor_ele.forEach((ele) => {
+        ele.classList.toggle("dark_bgColor");
+        ele.classList.toggle("white_bgColor");
+    });
+    // Change The Background Color for Search Bar
+    let search_bar = document.querySelector(".search_bar");
+    let bar_input_search = document.querySelector(".bar_input input");
+    search_bar.classList.toggle("white_bgColor");
+    search_bar.classList.toggle("dark_bgColor");
+    bar_input_search.classList.toggle("white_bgColor");
+    bar_input_search.classList.toggle("dark_bgColor");
+}
+// :::::::::::::::::::::: End Dark Mode
 
 
 
@@ -54,10 +107,12 @@ async function fetchCities() {
 
 search_input.addEventListener("input", async function () {
     const data = await fetchCities();
+    let text_class = "white_color";
+    if (document.body.classList.contains("white_bgColor_body")) text_class = "dark_color";
     cities_list.innerHTML = data.slice(0, 3).map(city => `
         <p>
-            <i class="fa-solid fa-location-dot white_color"></i>
-            <span class="white_color">${city.address.name}</span>
+            <i class="fa-solid fa-location-dot ${text_class}"></i>
+            <span class="${text_class}">${city.address.name}</span>
         </p>
     `).join("");
     document.querySelectorAll(".cities_list p").forEach(ele => {

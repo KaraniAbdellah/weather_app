@@ -30,7 +30,7 @@ header {
         width: 50%;
         padding: 10px 15px;
         border-radius: var(--border-radius-search);
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px;
         .bar_input {
             @include flex_between;
             // margin-bottom: 10px;
@@ -104,7 +104,7 @@ section.weather_info {
         height: 100%;
         padding: 0 10px;
         .now {
-            box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+            box-shadow: #5b5b5b 0px 0px 1px;
             border-radius: var(--border-radius-card);
             padding: 20px;
             margin-bottom: 20px;
@@ -139,7 +139,7 @@ section.weather_info {
             }
         }
         .favorites {
-            box-shadow: rgba(53, 53, 53, 0.09) 0px 3px 12px;
+            box-shadow: #5b5b5b 0px 0px 1px;
             border-radius: var(--border-radius-card);
             padding: 20px;
             h3 { margin-bottom: 20px; } 
@@ -169,7 +169,7 @@ section.weather_info {
         width: 70%;
         border-radius: var(--border-radius-card);
         .todays {
-            box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+            box-shadow: #5b5b5b 0px 0px 1px;
             border-radius: var(--border-radius-card);
             margin-bottom: 20px;
             padding: 20px;
@@ -302,7 +302,7 @@ section.weather_info {
         }
 
         .today_at {
-            box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+            box-shadow: #5b5b5b 0px 0px 1px;
             border-radius: var(--border-radius-card);
             padding: 20px;
             .title {
