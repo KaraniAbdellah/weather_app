@@ -149,7 +149,8 @@ async function fetchCurrentLocation() {
 // Set The Image
 function SetImage(WeatherState) {
     console.log(WeatherState);
-    weather_img.src = "images/logo.png";
+    // Here We Must Generate The Weather Image Depending On WeatherState
+    weather_img.src = "amcharts_weather_icons_1.0.0/animated/day.svg";
 }
 
 // Set Date
@@ -165,9 +166,9 @@ function SetDateForToday() {
     today.textContent = `${dayName}  ${date.getDate()}, ${monthName}`;
 }
 
-async function getWeatherApi() {
+async function getWeatherApi(city_name) {
     let my_api_key_weather = "76d59da09bf6ff9fea4a24d945516588";
-    let city_name = "london";
+    // let city_name = "azilal";
 
     let reponse1 = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${my_api_key_weather}`);
     let data1 = await reponse1.json();
@@ -183,27 +184,26 @@ async function getWeatherApi() {
     SetImage(data1.weather[0].main);
 
     if (data2.list && data2.list[0]) {
-        pm25.textContent = data2.list[0].components.pm2_5;
-        so2.textContent = data2.list[0].components.so2;
-        no2.textContent = data2.list[0].components.no2;
-        o3.textContent = data2.list[0].components.o3;
+        pm25.textContent = (data2.list[0].components.pm2_5).toFixed(1);
+        so2.textContent = (data2.list[0].components.so2).toFixed(1);
+        no2.textContent = (data2.list[0].components.no2).toFixed(1);
+        o3.textContent = (data2.list[0].components.o3).toFixed(1);
     }
     
-    sunrise_content.textContent = data1.sys.sunrise / 100000;
-    sunset_content.textContent = data1.sys.sunset / 100000;
+    sunrise_content.textContent = new Date(data1.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    sunset_content.textContent = new Date(data1.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     pressure_content.textContent = data1.main.pressure;
     humidity_content.textContent = data1.main.humidity;
-    visibility_content.textContent = data1.visibility;
-    feels_like_content.textContent = data1.main.feels_like;
+    visibility_content.textContent = (data1.visibility / 1000).toFixed(1);
+    feels_like_content.textContent = (data1.main.feels_like - 273.15).toFixed(2);
 }
-getWeatherApi();
 
 
 
 search_btn.addEventListener("click", function() {
     // Get The City Name && Set the Weather Info
     let city_name = search_input.value;
-    // getWeatherApi(city_name);
+    getWeatherApi(city_name);
 
     // Set The Inputs [list of suggestion and input value]
     cities_list.innerHTML = "";
