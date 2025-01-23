@@ -124,11 +124,11 @@ async function getCurrentLocation() {
     return data.city.name;
 }
 
-// Now Section
+// Now Section Variables
 let now_temp = document.querySelector("span.tem_value");
 let today = document.querySelector(".today_value_date span");
 let current_location = document.querySelector(".location_value span");
-// Todays HightLights Section
+// Todays HightLights Section Variables
 let pm25 = document.querySelector("span.pm25");
 let so2 = document.querySelector("span.so2");
 let no2 = document.querySelector("span.no2");
@@ -140,7 +140,6 @@ let pressure_content = document.querySelector(".pressure_content");
 let humidity_content = document.querySelector(".humidity_content");
 let visibility_content = document.querySelector(".visibility_content");
 let feels_like_content = document.querySelector(".feels_like_content");
-
 
 
 function SetWeatherInfoDefault() {
