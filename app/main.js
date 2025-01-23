@@ -143,14 +143,28 @@ async function fetchCurrentLocation() {
     let my_api_key_location = "f89627d3b9004e27ac2b2a7d1baedaab";
     let reponse_cur = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key_location}`);
     let data = await reponse_cur.json();
-    console.log(data);
+    getWeatherApi(data.city.name);
 }
 
 // Set The Image
 function SetImage(WeatherState) {
     console.log(WeatherState);
     // Here We Must Generate The Weather Image Depending On WeatherState
-    weather_img.src = "amcharts_weather_icons_1.0.0/animated/day.svg";
+    // weather_img.src = "amcharts_weather_icons_1.0.0/animated/day.svg";
+    switch (WeatherState) {
+        case 'Clouds':
+            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/cloudy.svg';
+            break;
+        case 'Rain':
+            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
+            break;
+        case 'Snow':
+            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/snowy-6.svg';
+            break;
+        default:
+            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/day.svg';
+            break;
+    }
 }
 
 // Set Date
@@ -198,8 +212,6 @@ async function getWeatherApi(city_name) {
     feels_like_content.textContent = (data1.main.feels_like - 273.15).toFixed(2);
 }
 
-
-
 search_btn.addEventListener("click", function() {
     // Get The City Name && Set the Weather Info
     let city_name = search_input.value;
@@ -210,7 +222,11 @@ search_btn.addEventListener("click", function() {
     search_input.value = "";
 
 });
+
+// Set Info As Default
+document.addEventListener("DOMContentLoaded", fetchCurrentLocation());
 // :::::::::::::::::::::: End Getting Weather Info
+
 
 
 
