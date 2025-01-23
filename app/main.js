@@ -107,11 +107,6 @@ search_input.addEventListener("input", async function () {
         });
     });
 });
-
-search_btn.addEventListener("click", function() {
-    cities_list.innerHTML = "";
-    search_input.value = "";
-});
 // :::::::::::::::::::::: End Search Bar
 
 
@@ -143,7 +138,7 @@ let feels_like_content = document.querySelector(".feels_like_content");
 
 
 function SetWeatherInfoDefault() {
-
+    
 }
 function getWeatherInfo() {
 
@@ -153,6 +148,13 @@ function SetWeatherInfo() {
     console.log(now_temp, today, current_location);
 }
 SetWeatherInfo();
+
+search_btn.addEventListener("click", function() {
+    cities_list.innerHTML = "";
+    search_input.value = "";
+    // Get The City Name
+
+});
 // :::::::::::::::::::::: End Getting Weather Info
 
 
