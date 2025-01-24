@@ -357,7 +357,40 @@ section.weather_info {
         }
     }
 }
-
-
-
 // End Section
+
+// Start Footer
+footer {
+    @include flex_between;
+    padding: 20px;
+    transition: var(--transition);
+    margin-top: 50px;
+    ul.links {
+        @include flex_between;
+        li {
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 20px;
+            transition: var(--transition);
+            &:hover{
+                transform: scale(1.2);
+            }
+            &:hover > a i {
+                color: #7575ff  !important;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        display: block;
+        ul.links {
+            margin-bottom: 20px;
+        }
+        .copy_right {
+            text-align: center;
+        }
+    }
+}
+// End Footer
+
+
+

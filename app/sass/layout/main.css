@@ -57,7 +57,7 @@ body {
   font-family: "Roboto", serif;
 }
 
-ul {
+ul li {
   list-style: none;
 }
 
@@ -494,5 +494,42 @@ section.weather_info .day_weather_info .today_at .boxes .box img {
   }
   section.weather_info .day_weather_info .todays {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  transition: var(--transition);
+  margin-top: 50px;
+}
+footer ul.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer ul.links li {
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 20px;
+  transition: var(--transition);
+}
+footer ul.links li:hover {
+  transform: scale(1.2);
+}
+footer ul.links li:hover > a i {
+  color: #7575ff !important;
+}
+@media (max-width: 767px) {
+  footer {
+    display: block;
+  }
+  footer ul.links {
+    margin-bottom: 20px;
+  }
+  footer .copy_right {
+    text-align: center;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -144,6 +144,7 @@ async function fetchCurrentLocation() {
     let reponse_cur = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key_location}`);
     let data = await reponse_cur.json();
     getWeatherApi(data.city.name);
+    fetchNextDays(data.city.name);
 }
 
 // Set The Image
@@ -220,15 +221,21 @@ search_btn.addEventListener("click", function() {
     // Get The City Name && Set the Weather Info
     let city_name = search_input.value;
     getWeatherApi(city_name);
+    
+    // get The Weather Info About Next Time
+    fetchNextDays(city_name);
 
     // Set The Inputs [list of suggestion and input value]
     cities_list.innerHTML = "";
     search_input.value = "";
 
+
 });
 
 // Set Info As Default
-document.addEventListener("DOMContentLoaded", fetchCurrentLocation);
+document.addEventListener("DOMContentLoaded", function () {
+    fetchCurrentLocation();
+});
 
 // Custom The Current Location
 let current_location_btn = document.querySelector(".current_location_btn");
@@ -243,11 +250,15 @@ let Allfavorite = JSON.parse(localStorage.getItem("Allfavorite")) || [];
 
 // Function to add favorite to page
 function AddToFavorite(city_name, tem_value_fav) {
+
+    let classNameToAdd = "white_color";
+    if (document.body.classList.contains("white_bgColor_body")) classNameToAdd = "dark_color";
+
     let favorite_content = document.createElement("div");
     favorite_content.className = "favorite";
     favorite_content.innerHTML = `
         <p class="temp_value_fav">
-            <span class="white_color">${tem_value_fav}°C</span>
+            <span class="${classNameToAdd}">${tem_value_fav}°C</span>
         </p>
         <p class="location_value_fav">
             <span class="">${city_name}</span>
@@ -305,8 +316,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 // :::::::::::::::::::::: Start Get Weather Info About Next Five Days
 let next_day_box = document.querySelector(".today_at .boxes");
-async function fetchNextDays() {
-    let city_name = "tanger";
+async function fetchNextDays(city_name) {
     let apiKey = "76d59da09bf6ff9fea4a24d945516588";
     let FocetUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${apiKey}`;
 
@@ -314,12 +324,11 @@ async function fetchNextDays() {
         let reponse = await fetch(FocetUrl);
         let data = await reponse.json();
         for (let i = 0; i < 10; i++) {
-            if (data.list[i] && i % 2 !== 0) {
+            if (data.list[i]) {
                 // create new div element
                 let div_ele = document.createElement("div");
                 div_ele.classList.add("box");
                 div_ele.classList.add("dark_bgColor");
-
 
                 // create name image
                 let image = document.createElement("img");
@@ -327,19 +336,17 @@ async function fetchNextDays() {
                 
                 // custom the day 
                 let time = data.list[i].dt_txt;
-                console.log(time);
 
+                // custom the temperature
+                let temp = (Number(data.list[i].main.temp) - 273.15).toFixed(2); 
 
-                
-
-
-                // div_ele.innerHTML = `
-                //     <p class="time white_color">${time}</p>
-                //     <img src="" alt="">
-                //     <p class="degree white_color">${data.list[i].main.temp}°</p>
-                // `;
-                // next_day_box.append(div_ele);
-                // console.log(next_day_box);
+                div_ele.innerHTML = `
+                    <p class="time white_color">${time}</p>
+                    <img src="${image.src}" alt="">
+                    <p class="degree white_color">${temp}°</p>
+                `;
+                next_day_box.append(div_ele);
+                console.log(next_day_box);
             }
         }
     } catch(err) {
@@ -347,17 +354,16 @@ async function fetchNextDays() {
     }
      
 }
-/*
-<div class="box dark_bgColor">
-    <p class="time white_color">Monday</p>
-    <img src="amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg" alt="">
-    <p class="degree white_color">18°</p>
-</div>
-*/
-fetchNextDays();
-
-
 // :::::::::::::::::::::: End Get Weather Info About Next Five Days
+
+
+
+
+// :::::::::::::::::::::: Start set actual year
+let thisYear = document.querySelector(".copy_right .time_today");
+thisYear.textContent = new Date().getFullYear();
+// :::::::::::::::::::::: End set actual year
+
 
 
 
