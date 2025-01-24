@@ -212,7 +212,8 @@ async function getWeatherApi(city_name) {
         visibility_content.textContent = (data1.visibility / 1000).toFixed(1);
         feels_like_content.textContent = (data1.main.feels_like - 273.15).toFixed(2);
     } catch (error) {
-        console.log("error fetching...");
+        console.log("Error Fetching The Data");
+        fetchCurrentLocation();
     }
 
 }
