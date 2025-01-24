@@ -238,6 +238,40 @@ current_location_btn.addEventListener("click", fetchCurrentLocation);
 // :::::::::::::::::::::: End Getting Weather Info
 
 
+// :::::::::::::::::::::: Start Add Favorite
+let add_to_favorite_btn = document.querySelector(".add_btn_favorite");
+let favorites_list = document.querySelector(".favorites .content");
+
+add_to_favorite_btn.addEventListener("click", function() {
+    // Get The Temperature && City Name
+    
+    
+    let favorite_content = document.createElement("div");
+    favorite_content.className = "favorite";
+    favorite_content.innerHTML = `
+        <p class="temp_value_fav">
+            <span class="white_color">41°C</span>
+        </p>
+        <p class="location_value_fav">
+            <span class="">Beni Mella, Morocco</span>
+        </p>
+        <p class="trach_fav">
+            <i class="fa-solid fa-trash"></i>
+        </p>
+    `;
+    favorites_list.append(favorite_content);
+    // Add to LocalStorage
+
+    console.log(favorite_content);
+});
+
+
+
+
+// :::::::::::::::::::::: Start End Favorite
+
+
+
 
 
 

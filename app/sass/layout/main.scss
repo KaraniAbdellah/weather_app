@@ -115,7 +115,7 @@ section.weather_info {
                     margin-bottom: 20px;
                     p.title_now {font-size: 30px}
                     @include flex_between;
-                    .add_btn {
+                    .add_btn_favorite {
                         cursor: pointer;
                         background-color: #3eae3e;
                         padding: 10px; border-radius: var(--border-radius);

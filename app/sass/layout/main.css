@@ -208,18 +208,18 @@ section.weather_info aside .now .info div.header_info {
 section.weather_info aside .now .info div.header_info p.title_now {
   font-size: 30px;
 }
-section.weather_info aside .now .info div.header_info .add_btn {
+section.weather_info aside .now .info div.header_info .add_btn_favorite {
   cursor: pointer;
   background-color: #3eae3e;
   padding: 10px;
   border-radius: var(--border-radius);
   transition: var(--transition);
 }
-section.weather_info aside .now .info div.header_info .add_btn i {
+section.weather_info aside .now .info div.header_info .add_btn_favorite i {
   font-size: 20px;
   color: white;
 }
-section.weather_info aside .now .info div.header_info .add_btn:hover {
+section.weather_info aside .now .info div.header_info .add_btn_favorite:hover {
   background-color: green;
 }
 section.weather_info aside .now .info p span {
