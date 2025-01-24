@@ -1,36 +1,20 @@
 // Testing OpenWeatherApi
 
 // fetch the based_api for get the "lat" and "lon"
-async function fetching_data() {
-    // My ApiKey from OpenWeatherMap and CityName
-    let my_api_key = "76d59da09bf6ff9fea4a24d945516588";
-    let city_name = "london";
-    // this api for find the "lat" and "lon" for specific city
-    let based_url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${my_api_key}`;
-    let response1 = await fetch(based_url);
-    let data1 = await response1.json();
-    console.log(data1.coord.lat, data1.coord.lon);
+// async function fetching_data() {
+//     // My ApiKey from OpenWeatherMap and CityName
+//     let my_api_key = "76d59da09bf6ff9fea4a24d945516588";
+//     let city_name = "london";
+//     // this api for find the "lat" and "lon" for specific city
+//     let based_url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${my_api_key}`;
+//     let response1 = await fetch(based_url);
+//     let data1 = await response1.json();
+//     console.log(data1.coord.lat, data1.coord.lon);
 
-    // Another API for Get The More About Weather Info ABout City
-    // https://api.openweathermap.org/data/2.5/air_pollution?lat=2&lon=2&appid=76d59da09bf6ff9fea4a24d945516588
-}
-fetching_data();
-
-
-
-
-
-
-// // Get The User Location [city, country, lon, lan]
-// let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
-// fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key}`).then((reponse) => {
-//     let Data = reponse.json();
-//     return Data;
-// }).then((Data) => {
-//     console.log(Data);
-// });
-
-
+//     // Another API for Get The More About Weather Info ABout City
+//     // https://api.openweathermap.org/data/2.5/air_pollution?lat=2&lon=2&appid=76d59da09bf6ff9fea4a24d945516588
+// }
+// fetching_data();
 
 
 
@@ -56,5 +40,49 @@ fetching_data();
 // }).catch((err) => {
 //     console.log("error fetching data...");
 // })
+
+
+
+// let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
+
+
+// async function fetchDate() {
+//     let reponse =  await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key}`);
+//     console.log(reponse);
+//     console.log("Message");
+
+// }
+// fetchDate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
