@@ -243,6 +243,7 @@ let add_to_favorite_btn = document.querySelector(".add_btn_favorite");
 let favorites_list = document.querySelector(".favorites .content");
 let Allfavorite = JSON.parse(localStorage.getItem("Allfavorite")) || [];
 
+// Function to add favorite to page
 function AddToFavorite(city_name, tem_value_fav) {
     let favorite_content = document.createElement("div");
     favorite_content.className = "favorite";
@@ -260,42 +261,61 @@ function AddToFavorite(city_name, tem_value_fav) {
     favorites_list.append(favorite_content);
 }
 
+// Click To the Add To Favorite
 add_to_favorite_btn.addEventListener("click", function() {
     // Get The Temperature && City Name
     let tem_value_fav = now_temp.textContent;
     let city_name = current_location.textContent;
 
     // Loop Thought The Elments && Check If The Element Already Exit
-    let check = true;
-    for (let i = 0; i < Allfavorite.length; i++) {
-        if (Allfavorite[i].city_name == city_name) {
-            check = false; break;
-        }
-    }
+    let check = !Allfavorite.some(fav => fav.city_name === city_name);
     if (check) {
         // Add to LocalStorage
         Allfavorite.push({city_name: city_name, tem_value_fav: tem_value_fav});
         window.localStorage.setItem("Allfavorite", JSON.stringify(Allfavorite));
         // Add To Web Page
         AddToFavorite(city_name, tem_value_fav);
-    }
+    } 
     else console.log("Element Already Exit");
 });
 
+
+function addGlobalEventListnear(typeOfEvent, selector, callBack) {
+    document.addEventListener(typeOfEvent, function(event) {
+        if (event.target.matches(selector)) {
+            let favorite_item = event.target.parentElement.parentElement;
+            let city_name = favorite_item.querySelector(".location_value_fav span").textContent;
+
+            favorite_item.remove();
+            Allfavorite = Allfavorite.filter(fav => fav.city_name !== city_name);
+            window.localStorage.setItem("Allfavorite", JSON.stringify(Allfavorite));
+        }
+    });
+}
 
 // Set The Favorite ELement in DOMContentLoaded
 window.addEventListener("DOMContentLoaded", function() {
     Allfavorite.forEach(function (param) {
         AddToFavorite(param.city_name, param.tem_value_fav);
     });
+    // Remove An Element From LocalStorage && Page
+    addGlobalEventListnear("click", ".fa-trash", );
 });
-
-
-
-
 // :::::::::::::::::::::: End Add & Delete From Favorite
 
 
+
+// :::::::::::::::::::::: Start Get Weather Info About Next Five Days
+let city_name = "beni mellal";
+let apiKey = "76d59da09bf6ff9fea4a24d945516588";
+let FocetUrl = `api.openweathermap.org/data/2.5/forecast?q=${apiKey}&appid=${city_name}`;
+
+
+
+
+
+
+// :::::::::::::::::::::: End Get Weather Info About Next Five Days
 
 
 
