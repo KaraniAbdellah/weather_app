@@ -238,37 +238,64 @@ current_location_btn.addEventListener("click", fetchCurrentLocation);
 // :::::::::::::::::::::: End Getting Weather Info
 
 
-// :::::::::::::::::::::: Start Add Favorite
+// :::::::::::::::::::::: Start Add & Delete From Favorite
 let add_to_favorite_btn = document.querySelector(".add_btn_favorite");
 let favorites_list = document.querySelector(".favorites .content");
+let Allfavorite = JSON.parse(localStorage.getItem("Allfavorite")) || [];
 
-add_to_favorite_btn.addEventListener("click", function() {
-    // Get The Temperature && City Name
-    
-    
+function AddToFavorite(city_name, tem_value_fav) {
     let favorite_content = document.createElement("div");
     favorite_content.className = "favorite";
     favorite_content.innerHTML = `
         <p class="temp_value_fav">
-            <span class="white_color">41°C</span>
+            <span class="white_color">${tem_value_fav}°C</span>
         </p>
         <p class="location_value_fav">
-            <span class="">Beni Mella, Morocco</span>
+            <span class="">${city_name}</span>
         </p>
         <p class="trach_fav">
             <i class="fa-solid fa-trash"></i>
         </p>
     `;
     favorites_list.append(favorite_content);
-    // Add to LocalStorage
+}
 
-    console.log(favorite_content);
+add_to_favorite_btn.addEventListener("click", function() {
+    // Get The Temperature && City Name
+    let tem_value_fav = now_temp.textContent;
+    let city_name = current_location.textContent;
+    AddToFavorite(city_name, tem_value_fav);
+
+    // Filter LocalStorage By City Name
+    
+
+    // Add to LocalStorage
+    Allfavorite.push({city_name: city_name, tem_value_fav: tem_value_fav});
+    window.localStorage.setItem("Allfavorite", JSON.stringify(Allfavorite));
+});
+
+
+// Set The Favorite ELe in DOCUMENTLOAD
+window.addEventListener("DOMContentLoaded", function() {
+    let Allfavorite = JSON.parse(localStorage.getItem("Allfavorite")) || [];
+    Allfavorite.forEach(function (param) {
+        AddToFavorite(param.city_name, param.tem_value_fav);
+    });
+    // Remove An Element From Favorite
+    let trach_fav_list = document.querySelectorAll(".trach_fav");
+    trach_fav_list.forEach((ele) => {
+        ele.addEventListener("click", function () {
+            console.log(ele);
+        });
+    });
+    console.log(trach_fav_list);
+
 });
 
 
 
 
-// :::::::::::::::::::::: Start End Favorite
+// :::::::::::::::::::::: End Add & Delete From Favorite
 
 
 
