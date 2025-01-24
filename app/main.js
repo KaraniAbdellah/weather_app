@@ -264,32 +264,30 @@ add_to_favorite_btn.addEventListener("click", function() {
     // Get The Temperature && City Name
     let tem_value_fav = now_temp.textContent;
     let city_name = current_location.textContent;
-    AddToFavorite(city_name, tem_value_fav);
 
-    // Filter LocalStorage By City Name
-    
-
-    // Add to LocalStorage
-    Allfavorite.push({city_name: city_name, tem_value_fav: tem_value_fav});
-    window.localStorage.setItem("Allfavorite", JSON.stringify(Allfavorite));
+    // Loop Thought The Elments && Check If The Element Already Exit
+    let check = true;
+    for (let i = 0; i < Allfavorite.length; i++) {
+        if (Allfavorite[i].city_name == city_name) {
+            check = false; break;
+        }
+    }
+    if (check) {
+        // Add to LocalStorage
+        Allfavorite.push({city_name: city_name, tem_value_fav: tem_value_fav});
+        window.localStorage.setItem("Allfavorite", JSON.stringify(Allfavorite));
+        // Add To Web Page
+        AddToFavorite(city_name, tem_value_fav);
+    }
+    else console.log("Element Already Exit");
 });
 
 
-// Set The Favorite ELe in DOCUMENTLOAD
+// Set The Favorite ELement in DOMContentLoaded
 window.addEventListener("DOMContentLoaded", function() {
-    let Allfavorite = JSON.parse(localStorage.getItem("Allfavorite")) || [];
     Allfavorite.forEach(function (param) {
         AddToFavorite(param.city_name, param.tem_value_fav);
     });
-    // Remove An Element From Favorite
-    let trach_fav_list = document.querySelectorAll(".trach_fav");
-    trach_fav_list.forEach((ele) => {
-        ele.addEventListener("click", function () {
-            console.log(ele);
-        });
-    });
-    console.log(trach_fav_list);
-
 });
 
 
