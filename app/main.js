@@ -306,13 +306,21 @@ window.addEventListener("DOMContentLoaded", function() {
 
 
 // :::::::::::::::::::::: Start Get Weather Info About Next Five Days
-let city_name = "beni mellal";
-let apiKey = "76d59da09bf6ff9fea4a24d945516588";
-let FocetUrl = `api.openweathermap.org/data/2.5/forecast?q=${apiKey}&appid=${city_name}`;
+async function fetchNextDays() {
+    let city_name = "beni mellal";
+    let apiKey = "76d59da09bf6ff9fea4a24d945516588";
+    let FocetUrl = `api.openweathermap.org/data/2.5/forecast?q=${apiKey}&appid=${city_name}`;
 
-
-
-
+    let reponse = await fetch(FocetUrl);
+    let data = await reponse.json();
+    console.log(data);
+}
+/* <div class="box dark_bgColor">
+    <p class="time white_color">Monday</p>
+    <img src="amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg" alt="">
+    <p class="degree white_color">18°</p>
+</div> */
+fetchNextDays();
 
 
 // :::::::::::::::::::::: End Get Weather Info About Next Five Days
