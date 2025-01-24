@@ -147,34 +147,32 @@ async function fetchCurrentLocation() {
 }
 
 // Set The Image
-function SetImage(WeatherState) {
-    console.log(WeatherState);
-    // Here We Must Generate The Weather Image Depending On WeatherState
+// Here We Must Generate The Weather Image Depending On WeatherState
+function SetImage(WeatherState, ele) {
     // weather_img.src = "amcharts_weather_icons_1.0.0/animated/day.svg";
     switch (WeatherState) {
         case 'Clouds':
-            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/cloudy.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/cloudy.svg';
             break;
         case 'Rain':
-            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
             break;
         case 'Snow':
-            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/snowy-6.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/snowy-6.svg';
             break;
         default:
-            weather_img.src = 'amcharts_weather_icons_1.0.0/animated/day.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/day.svg';
             break;
     }
 }
 
 // Set Date
+const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 function SetDateForToday() {
     const date = new Date();
     const monthIndex = date.getMonth();
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const monthName = months[monthIndex];
-
-    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const dayName = daysOfWeek[date.getDay()];
 
     today.textContent = `${dayName}  ${date.getDate()}, ${monthName}`;
@@ -196,7 +194,7 @@ async function getWeatherApi(city_name) {
         now_temp.textContent = (Number(data1.main.temp) - 273.15).toFixed(2);
         current_location.textContent = data1.name;
         SetDateForToday();
-        SetImage(data1.weather[0].main);
+        SetImage(data1.weather[0].main, weather_img);
     
         if (data2.list && data2.list[0]) {
             pm25.textContent = (data2.list[0].components.pm2_5).toFixed(1);
@@ -306,20 +304,56 @@ window.addEventListener("DOMContentLoaded", function() {
 
 
 // :::::::::::::::::::::: Start Get Weather Info About Next Five Days
+let next_day_box = document.querySelector(".today_at .boxes");
 async function fetchNextDays() {
-    let city_name = "beni mellal";
+    let city_name = "tanger";
     let apiKey = "76d59da09bf6ff9fea4a24d945516588";
-    let FocetUrl = `api.openweathermap.org/data/2.5/forecast?q=${apiKey}&appid=${city_name}`;
+    let FocetUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${apiKey}`;
 
-    let reponse = await fetch(FocetUrl);
-    let data = await reponse.json();
-    console.log(data);
+    try {
+        let reponse = await fetch(FocetUrl);
+        let data = await reponse.json();
+        for (let i = 0; i < 10; i++) {
+            if (data.list[i] && i % 2 !== 0) {
+                // create new div element
+                let div_ele = document.createElement("div");
+                div_ele.classList.add("box");
+                div_ele.classList.add("dark_bgColor");
+
+
+                // create name image
+                let image = document.createElement("img");
+                SetImage(data.list[i].weather[0].main, image);
+                
+                // custom the day 
+                let time = data.list[i].dt_txt;
+                console.log(time);
+
+
+                
+
+
+                // div_ele.innerHTML = `
+                //     <p class="time white_color">${time}</p>
+                //     <img src="" alt="">
+                //     <p class="degree white_color">${data.list[i].main.temp}°</p>
+                // `;
+                // next_day_box.append(div_ele);
+                // console.log(next_day_box);
+            }
+        }
+    } catch(err) {
+        console.log("error fetching the data");
+    }
+     
 }
-/* <div class="box dark_bgColor">
+/*
+<div class="box dark_bgColor">
     <p class="time white_color">Monday</p>
     <img src="amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg" alt="">
     <p class="degree white_color">18°</p>
-</div> */
+</div>
+*/
 fetchNextDays();
 
 
