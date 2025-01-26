@@ -320,6 +320,13 @@ async function fetchNextDays(city_name) {
     let apiKey = "76d59da09bf6ff9fea4a24d945516588";
     let FocetUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${apiKey}`;
 
+    let BgBoxClass = "dark_bgColor";
+    let TextBoxClass = "white_color";
+    if (document.body.classList.contains("white_bgColor_body")) {
+        BgBoxClass = "white_bgColor";
+        TextBoxClass = "dark_color";
+    }
+
     try {
         let reponse = await fetch(FocetUrl);
         let data = await reponse.json();
@@ -328,7 +335,7 @@ async function fetchNextDays(city_name) {
                 // create new div element
                 let div_ele = document.createElement("div");
                 div_ele.classList.add("box");
-                div_ele.classList.add("dark_bgColor");
+                div_ele.classList.add(BgBoxClass);
 
                 // create name image
                 let image = document.createElement("img");
@@ -341,9 +348,9 @@ async function fetchNextDays(city_name) {
                 let temp = (Number(data.list[i].main.temp) - 273.15).toFixed(2); 
 
                 div_ele.innerHTML = `
-                    <p class="time white_color">${time}</p>
+                    <p class="time ${TextBoxClass}">${time}</p>
                     <img src="${image.src}" alt="">
-                    <p class="degree white_color">${temp}°</p>
+                    <p class="degree ${TextBoxClass}">${temp}°</p>
                 `;
                 next_day_box.append(div_ele);
                 console.log(next_day_box);
