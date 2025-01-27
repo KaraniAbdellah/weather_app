@@ -22,6 +22,14 @@
 </div>
 
 
+<ul>
+- A **Responsive Web-App** to get weather info
+- **Developed using:** JavaScript.  
+- **Styling:** Beautifully crafted with SASS.
+- **Deployed on:** Github  
+- **Live Demo:** [https://karaniabdellah.github.io/weather_app/](#).
+</ul>
+
 ### Screenshots :
 <img src="images/weather_app.png">
 
