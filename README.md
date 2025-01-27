@@ -27,7 +27,7 @@
    <li> <b>Developed using:</b> HTML5, CSS3, SASS, JavaScript. </li>
    <li><b>Styling:</b> Beautifully crafted with SASS.</li>
   <li><b>Deployed on:</b> Github  </li>
-  <li><b>Live Demo:</b> [https://karaniabdellah.github.io/weather_app/](#).</li>
+  <li><b>Live Demo:</b> [https://karaniabdellah.github.io/weather_app/](#DEMO).</li>
 </ul>
 
 ### Screenshots :
