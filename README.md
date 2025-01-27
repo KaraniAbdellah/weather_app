@@ -23,7 +23,7 @@
 
 
 <ul>
-  <li>**Responsive Web-App** to get weather info</li>
+  <li>** Responsive Web-App ** to get weather info</li>
    <li>**Developed using:** JavaScript.  </li>
    <li>**Styling:** Beautifully crafted with SASS.</li>
   <li>**Deployed on:** Github  </li>
