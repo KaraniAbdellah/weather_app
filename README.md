@@ -23,7 +23,7 @@
 
 
 <ul>
-  <li> <b>Responsive Web-App</b>  to get weather info</li>
+  <li> <b>Responsive Web-App to get weather info</b></li>
    <li> <b>Developed using:</b> HTML5, CSS3, SASS, JavaScript. </li>
    <li><b>Styling:</b> Beautifully crafted with SASS.</li>
   <li><b>Deployed on:</b> Github  </li>
