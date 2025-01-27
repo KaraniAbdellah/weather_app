@@ -35,6 +35,14 @@
 
 
 
+I would be happy if you contribute to this project! 🙌
+
+
+*❤️ made with love by abdellah karani ❤️*
+
+
+
+
 A weather app that provides weather information by typing the name of a city. It includes features like adding to favorites and dark mode.
 
 
