@@ -26,6 +26,14 @@
   margin: 0 50px;
 }
 
+.hidden_todayAt {
+  display: none !important;
+}
+
+.hidden_btn {
+  display: none !important;
+}
+
 @media (max-width: 767px) {
   .container {
     margin: 0 30px;
@@ -475,6 +483,18 @@ section.weather_info .day_weather_info .today_at .boxes .box img {
   section.weather_info .day_weather_info .today_at .title {
     font-size: 25px !important;
   }
+}
+section.weather_info .day_weather_info .today_at button.load_more {
+  background-color: #7575ff !important;
+  transition: var(--transition);
+  color: white;
+  font-size: 15px;
+  font-weight: normal;
+  padding: 10px 5px;
+  border-radius: var(--border-radius);
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
 }
 @media (max-width: 992px) {
   section.weather_info {

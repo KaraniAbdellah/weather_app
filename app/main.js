@@ -154,16 +154,16 @@ function SetImage(WeatherState, ele) {
     console.log(ele);
     switch (WeatherState) {
         case 'Clouds':
-            ele.src = 'amcharts_weather_icons_1.0.0/animated/cloudy.svg';
+            ele.src = '../app/amcharts_weather_icons_1.0.0/animated/cloudy.svg';
             break;
         case 'Rain':
-            ele.src = 'amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
+            ele.src = '../app/amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
             break;
         case 'Snow':
-            ele.src = 'amcharts_weather_icons_1.0.0/animated/snowy-6.svg';
+            ele.src = '../app/amcharts_weather_icons_1.0.0/animated/snowy-6.svg';
             break;
         default:
-            ele.src = 'amcharts_weather_icons_1.0.0/animated/day.svg';
+            ele.src = '../app/amcharts_weather_icons_1.0.0/animated/day.svg';
             break;
     }
 }
@@ -317,6 +317,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 // :::::::::::::::::::::: Start Get Weather Info About Next Five Days
 let next_day_box = document.querySelector(".today_at .boxes");
+let load_more_btn = document.querySelector("button.load_more");
 async function fetchNextDays(city_name) {
     let apiKey = "76d59da09bf6ff9fea4a24d945516588";
     let FocetUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${apiKey}`;
@@ -331,7 +332,9 @@ async function fetchNextDays(city_name) {
     try {
         let reponse = await fetch(FocetUrl);
         let data = await reponse.json();
-        for (let i = 0; i < 10; i++) {
+        console.log(data);
+        next_day_box.innerHTML = "";
+        for (let i = 0; i < 20; i++) {
             if (data.list[i]) {
                 // create new div element
                 let div_ele = document.createElement("div");
@@ -354,14 +357,26 @@ async function fetchNextDays(city_name) {
                     <p class="degree ${TextBoxClass}">${temp}°</p>
                 `;
                 next_day_box.append(div_ele);
-                console.log(next_day_box);
+                if (i >= 5) div_ele.classList.add("hidden_todayAt");
+                console.log(div_ele);
             }
         }
     } catch(err) {
-        console.log("error fetching the data");
+        console.log("error fetching the data for next day");
     }
      
 }
+
+// Load More
+load_more_btn.addEventListener("click", function () {
+    let hidden_todayAt_Eles = document.querySelectorAll(".hidden_todayAt");
+    hidden_todayAt_Eles.forEach((ele) => {
+        ele.classList.remove("hidden_todayAt");
+    });
+    load_more_btn.classList.add("hidden_btn");
+});
+
+
 // :::::::::::::::::::::: End Get Weather Info About Next Five Days
 
 

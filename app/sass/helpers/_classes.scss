@@ -25,6 +25,13 @@
     margin: 0 50px;
 }
 
+.hidden_todayAt {
+    display: none !important;
+}
+.hidden_btn {
+    display: none !important;
+}
+
 @media (max-width: 767px) {
     .container {
         margin: 0 30px;
