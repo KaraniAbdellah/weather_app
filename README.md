@@ -23,15 +23,23 @@
 
 
 <ul>
-- A **Responsive Web-App** to get weather info
-- **Developed using:** JavaScript.  
-- **Styling:** Beautifully crafted with SASS.
-- **Deployed on:** Github  
-- **Live Demo:** [https://karaniabdellah.github.io/weather_app/](#).
+  <li> <b>Responsive Web-App to get weather info</b></li>
+   <li> <b>Developed using:</b> HTML5, CSS3, SASS, JavaScript. </li>
+   <li><b>Styling:</b> Beautifully crafted with SASS.</li>
+  <li><b>Deployed on:</b> Github  </li>
+  <li><b>Live Demo:</b> <a href="https://karaniabdellah.github.io/weather_app/" target="_blank">DEMO</a></li>
 </ul>
 
 ### Screenshots :
 <img src="images/weather_app.png">
+
+
+
+I would be happy if you contribute to this project! 🙌
+
+
+*❤️ made with love by abdellah karani ❤️*
+
 
 
 
