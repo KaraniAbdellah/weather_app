@@ -147,23 +147,23 @@ async function fetchCurrentLocation() {
     fetchNextDays(data.city.name);
 }
 
-// Set The Image
+// Set The Images
 // Here We Must Generate The Weather Image Depending On WeatherState
 function SetImage(WeatherState, ele) {
     // weather_img.src = "amcharts_weather_icons_1.0.0/animated/day.svg";
     console.log(ele);
     switch (WeatherState) {
         case 'Clouds':
-            ele.src = '/app/amcharts_weather_icons_1.0.0/animated/cloudy.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/cloudy.svg';
             break;
         case 'Rain':
-            ele.src = '/app/amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
             break;
         case 'Snow':
-            ele.src = '/app/amcharts_weather_icons_1.0.0/animated/snowy-6.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/snowy-6.svg';
             break;
         default:
-            ele.src = '/app/amcharts_weather_icons_1.0.0/animated/day.svg';
+            ele.src = 'amcharts_weather_icons_1.0.0/animated/day.svg';
             break;
     }
 }
