@@ -23,7 +23,7 @@
 
 
 ### Screenshots :
-<img src="images/Capture d&apos;écran 2025-01-21 114713.png">
+<img src="images/weather_app.png">
 
 
 
