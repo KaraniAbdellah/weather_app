@@ -23,11 +23,11 @@
 
 
 <ul>
-  <li>** Responsive Web-App ** to get weather info</li>
-   <li>**Developed using:** JavaScript.  </li>
-   <li>**Styling:** Beautifully crafted with SASS.</li>
-  <li>**Deployed on:** Github  </li>
-  <li>**Live Demo:** [https://karaniabdellah.github.io/weather_app/](#).</li>
+  <li> <b>Responsive Web-App</b>  to get weather info</li>
+   <li> <b>Developed using:</b> HTML5, CSS3, SASS, JavaScript. </li>
+   <li><b>Styling:</b> Beautifully crafted with SASS.</li>
+  <li><b>Deployed on:</b> Github  </li>
+  <li><b>Live Demo:</b> [https://karaniabdellah.github.io/weather_app/](#).</li>
 </ul>
 
 ### Screenshots :
