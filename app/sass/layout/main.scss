@@ -377,6 +377,8 @@ footer {
     padding: 20px;
     transition: var(--transition);
     margin-top: 50px;
+
+
     ul.links {
         @include flex_between;
         li {
@@ -403,6 +405,7 @@ footer {
     }
 }
 // End Footer
+
 
 
 
