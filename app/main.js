@@ -116,6 +116,7 @@ async function getCurrentLocation() {
     let my_api_key = "f89627d3b9004e27ac2b2a7d1baedaab";
     let reponse = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${my_api_key}`);
     let data = await reponse.json();
+    console.log(data);
     return data.city.name;
 }
 
